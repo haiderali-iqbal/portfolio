@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio | Biomedical Scientist & Bioinformatician</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        // Check initial theme before render to prevent flashing
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        darkbg: {
+                            900: '#0b0f19',
+                            800: '#111827',
+                            700: '#1f2937',
+                            600: '#374151',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+        }
+        .dark .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-darkbg-900 text-slate-800 dark:text-slate-200 antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
+
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-darkbg-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-900 dark:bg-brand-600 text-brand-500 dark:text-white flex items-center justify-center font-bold text-lg shadow-md transition-colors">
+                        <i class="fa-solid fa-dna"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-slate-900 dark:text-white tracking-tight block text-sm sm:text-base">Scientific Portfolio</span>
+                        <span class="text-xs text-brand-700 dark:text-brand-500 font-medium block">Biomedicine & Bioinformatics</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav & Dark Mode Toggle -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                    <a href="#home" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Home</a>
+                    <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">About & Skills</a>
+                    <a href="#project" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">BSc Research</a>
+                    <a href="#msc" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">MSc Journey</a>
+                    <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Contact & CV</a>
+
+                    <!-- Theme Toggle Switch -->
+                    <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-darkbg-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-darkbg-700 border border-slate-200 dark:border-slate-700 transition-all">
+                        <i id="theme-toggle-dark-icon" class="fa-solid fa-moon hidden text-amber-400"></i>
+                        <i id="theme-toggle-light-icon" class="fa-solid fa-sun hidden text-amber-400"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu and Theme Button -->
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-slate-100 dark:bg-darkbg-800 text-slate-700 dark:text-slate-200">
+                        <i id="theme-toggle-dark-icon-mobile" class="fa-solid fa-moon hidden text-amber-400"></i>
+                        <i id="theme-toggle-light-icon-mobile" class="fa-solid fa-sun hidden text-amber-400"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-slate-600 dark:text-slate-300 hover:text-slate-900 focus:outline-none p-2 rounded-lg">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-darkbg-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2 shadow-lg">
+            <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-darkbg-800 mobile-link">Home</a>
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-darkbg-800 mobile-link">About & Skills</a>
+            <a href="#project" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-darkbg-800 mobile-link">BSc Research</a>
+            <a href="#msc" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-darkbg-800 mobile-link">MSc Journey</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-darkbg-800 mobile-link">Contact & CV</a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-grid-pattern border-b border-slate-200 dark:border-slate-800 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-900/30 border border-brand-200 dark:border-brand-800/50 text-brand-800 dark:text-brand-300 text-xs font-semibold tracking-wide">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>BSc Biomedical Science (2:1) • MSc Candidate</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+                        Bridging Laboratory Biomedicine & <span class="text-brand-600 dark:text-brand-500">Computational Biology</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Biomedical Scientist and Bioinformatician specialising in massive-scale data processing in R, metabolic physiology, and advanced analytical instrumentation.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#project" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-slate-900 dark:bg-brand-600 text-white font-semibold shadow-md hover:bg-slate-800 dark:hover:bg-brand-700 transition-all transform hover:-translate-y-0.5">
+                            <span>Explore BSc Research</span>
+                            <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                        <a href="#contact" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-white dark:bg-darkbg-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-semibold shadow-sm hover:bg-slate-50 dark:hover:bg-darkbg-700 transition-all">
+                            <i class="fa-solid fa-file-arrow-down mr-2 text-brand-600 dark:text-brand-500"></i>
+                            <span>View CV & Contact</span>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200 dark:border-slate-800 max-w-lg mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <div class="text-2xl font-bold text-slate-900 dark:text-white">7.4M+</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Data Points Analysed</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-2xl font-bold text-brand-600 dark:text-brand-500">First-Class</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Undergraduate Project</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-2xl font-bold text-slate-900 dark:text-white">R / Tidyverse</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Computational Pipeline</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero R Code Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-md bg-white dark:bg-darkbg-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-6 relative">
+                        <div class="absolute -top-3 -right-3 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                            Active Research
+                        </div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl font-bold">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white text-base">Bioinformatic Workflow</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">RStudio Environment & Pipeline</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3 bg-slate-900 dark:bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs font-mono text-slate-300">
+                            <div class="flex items-center justify-between">
+                                <span class="text-brand-400 font-bold"># Load Libraries</span>
+                                <span class="text-slate-500">R 4.3</span>
+                            </div>
+                            <div>library(tidyverse)<br>library(rstatix)<br>library(ggplot2)</div>
+                            <div class="text-brand-400 font-bold"># Pipeline Execution</div>
+                            <div>df_clean &lt;- raw_data %&gt;%<br>&nbsp;&nbsp;filter(complete.cases(.)) %&gt;%<br>&nbsp;&nbsp;mutate(z_score = scale(metric))</div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                            <span><i class="fa-solid fa-shield-halved text-brand-600 dark:text-brand-500 mr-1"></i> Reproducible Science</span>
+                            <span class="font-semibold text-slate-700 dark:text-slate-300">PCA & Welch's t-tests</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white dark:bg-darkbg-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-700 dark:text-brand-500 font-semibold text-sm uppercase tracking-wider block mb-2">Background & Competencies</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">About Me & Technical Expertise</h2>
+                <p class="mt-4 text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                    Combining wet-lab biomedical fundamentals with scalable computational pipelines to interrogate complex biological datasets, metabolic pathways, and endurance kinetics.
+                </p>
+            </div>
+
+            <!-- Bio Narrative Card -->
+            <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 mb-12 shadow-sm">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1 text-center md:text-left border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700 pb-6 md:pb-0 md:pr-8">
+                        <div class="w-24 h-24 bg-slate-900 dark:bg-brand-600 text-brand-400 dark:text-white rounded-2xl mx-auto md:mx-0 flex items-center justify-center text-4xl font-bold shadow-md mb-4">
+                            <i class="fa-solid fa-microscope"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Biomedical Scientist</h3>
+                        <p class="text-sm text-brand-700 dark:text-brand-400 font-medium mt-1">Specialising in Analytical Science</p>
+                        <div class="mt-4 text-xs text-slate-500 dark:text-slate-400">
+                            <p><i class="fa-solid fa-location-dot mr-1 text-slate-400"></i> United Kingdom</p>
+                            <p class="mt-1"><i class="fa-solid fa-envelope mr-1 text-slate-400"></i> Open for academic & industry roles</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 space-y-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                        <p>
+                            I am a Biomedical Science graduate (<strong class="text-slate-900 dark:text-white">BSc 2:1</strong> with a <strong class="text-brand-700 dark:text-brand-400">First-Class project mark</strong>) specialising in bioinformatics, computational biology, and biochemical/metabolic physiology. My academic work bridges massive dataset processing with deep human physiology—leveraging <strong class="text-slate-900 dark:text-white">R</strong> to uncover biological patterns and performance limits.
+                        </p>
+                        <p>
+                            Currently advancing my expertise through an <strong class="text-slate-900 dark:text-white">MSc in Biomedical and Analytical Science</strong>, my focus centres on applying rigorous analytical techniques, chromatography, mass spectrometry, and bioinformatic pipelines to solve complex biomedical questions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Matrix Tabs -->
+            <div class="space-y-6">
+                <div class="flex flex-wrap justify-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+                    <button onclick="switchTab('bioinfo')" id="btn-bioinfo" class="skills-tab px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-slate-900 dark:bg-brand-600 text-white shadow-sm">
+                        <i class="fa-solid fa-code mr-2"></i> Bioinformatics & R
+                    </button>
+                    <button onclick="switchTab('lab')" id="btn-lab" class="skills-tab px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-slate-100 dark:bg-darkbg-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-darkbg-700">
+                        <i class="fa-solid fa-vials mr-2"></i> Laboratory & Analytical
+                    </button>
+                    <button onclick="switchTab('quality')" id="btn-quality" class="skills-tab px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-slate-100 dark:bg-darkbg-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-darkbg-700">
+                        <i class="fa-solid fa-shield-check mr-2"></i> Quality & Standards
+                    </button>
+                </div>
+
+                <!-- Tab Content 1: Bioinformatics -->
+                <div id="content-bioinfo" class="skills-content grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Languages & Environments</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Proficient in R and RStudio for statistical programming, reproducible reporting, and pipeline automation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">R & RStudio</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Markdown</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Git / GitHub</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Data Wrangling & Tidyverse</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Skilled in cleaning, standardising, and merging massive datasets (millions of rows) with high efficiency.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">tidyverse</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">dplyr</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Data Cleaning</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Statistics & Visualisation</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Applying PCA, Welch's t-tests, and advanced statistical modeling with publication-ready ggplot2 visualisations.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">ggplot2</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">rstatix</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">PCA & t-tests</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content 2: Laboratory -->
+                <div id="content-lab" class="skills-content hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Molecular Biology Techniques</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Experience in nucleic acid extraction, polymerase chain reaction (PCR), and electrophoretic separation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">PCR</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">DNA/RNA Isolation</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Gel Electrophoresis</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Assays & Instrumental Analysis</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Spectrophotometric assays, ELISA, and foundational liquid chromatography principles for biochemical quantification.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">ELISA / Immunoassays</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Spectrophotometry</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">HPLC Foundations</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Physiological Systems</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Deep understanding of human metabolic pathways, lipid oxidation kinetics, and endurance physiology.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Metabolic Pathways</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">CPT1 / Lipid Oxidation</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Fatigue Kinetics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content 3: Quality Standards -->
+                <div id="content-quality" class="skills-content hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Good Laboratory Practice (GLP)</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Strict adherence to safety protocols, contamination control, traceability, and accurate documentation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">GLP Compliance</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Lab Safety</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Traceability</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Method Validation</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Evaluating linearity, limit of detection (LOD), limit of quantification (LOQ), accuracy, and precision.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">LOD / LOQ</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Precision & Accuracy</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">ISO 15189 Awareness</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl">
+                        <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Literature & Data Integrity</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Critical appraisal of peer-reviewed scientific literature and reproducible data management workflows.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Critical Appraisal</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Data Management</span>
+                            <span class="px-2.5 py-1 rounded-md bg-white dark:bg-darkbg-700 border border-slate-200 dark:border-slate-600 text-xs font-semibold text-slate-700 dark:text-slate-200">Scientific Writing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project" class="py-20 bg-slate-50 dark:bg-darkbg-800/60 border-y border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-700 dark:text-brand-500 font-semibold text-sm uppercase tracking-wider block mb-2">Undergraduate Thesis Cornerstone</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Undergraduate Project Showcase</h2>
+                <p class="mt-4 text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                    A rigorous bioinformatic investigation combining massive performance datasets with deep physiological and metabolic analysis.
+                </p>
+            </div>
+
+            <!-- Main Project Card -->
+            <div class="bg-white dark:bg-darkbg-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xl overflow-hidden max-w-5xl mx-auto">
+                <div class="bg-slate-900 dark:bg-darkbg-900 p-6 sm:p-8 text-white flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800">
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-bold tracking-wide uppercase">First-Class Project Mark</span>
+                            <span class="px-3 py-1 rounded-full bg-slate-800 dark:bg-slate-800 text-slate-300 text-xs font-medium">BSc Biomedical Science (2:1 Overall)</span>
+                            <span class="px-3 py-1 rounded-full bg-slate-800 dark:bg-slate-800 text-slate-300 text-xs font-medium">Supervisor: Dr. Richard Bingham</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                            Biological Sex Differences and the Limits of Human Endurance: A Bioinformatics Approach to Ultramarathon Data
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="p-6 sm:p-10 space-y-8">
+                    <!-- Abstract -->
+                    <div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center">
+                            <i class="fa-solid fa-file-lines text-brand-600 dark:text-brand-500 mr-2"></i> Abstract & Overview
+                        </h4>
+                        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed bg-slate-50 dark:bg-darkbg-900/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/60">
+                            This research investigated the physiological and statistical limits of human endurance through a sex-comparative lens. By building a scalable data-processing pipeline in R, a global dataset of <strong class="text-slate-900 dark:text-white">7.4 million ultramarathon finishing times</strong> was cleaned, standardised, and integrated with population health benchmarks from the NHANES database. The study evaluated how sex-specific differences in substrate utilisation, fat oxidation rates, CPT1-mediated fatty-acid transport, and glycogen sparing influence fatigue kinetics during prolonged exertion, synthesizing computational findings with physiological literature surrounding muscle fibre composition, thermoregulation, and the Central Governor Theory.
+                        </p>
+                    </div>
+
+                    <!-- Methodology Grid -->
+                    <div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                            <i class="fa-solid fa-gears text-brand-600 dark:text-brand-500 mr-2"></i> Methodology & Analytical Pipeline
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-slate-50 dark:bg-darkbg-900/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="w-8 h-8 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-code"></i>
+                                    </div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Data Processing & Engineering</h5>
+                                </div>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">
+                                    Built a scalable data-processing pipeline in <strong class="text-slate-900 dark:text-white">R and RStudio</strong> using <strong class="text-brand-600 dark:text-brand-400">tidyverse</strong> and <strong class="text-brand-600 dark:text-brand-400">dplyr</strong> to clean, standardise, and merge massive-scale performance metrics (7.4M records) with external population health datasets (NHANES).
+                                </p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-darkbg-900/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="w-8 h-8 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-chart-column"></i>
+                                    </div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Statistical Analysis</h5>
+                                </div>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">
+                                    Applied <strong class="text-slate-900 dark:text-white">Principal Component Analysis (PCA)</strong>, <strong class="text-slate-900 dark:text-white">Welch's t-tests</strong>, and advanced statistical models using <strong class="text-brand-600 dark:text-brand-400">rstatix</strong> to evaluate multi-variable performance trends and systemic lipid profiles.
+                                </p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-darkbg-900/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="w-8 h-8 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-chart-pie"></i>
+                                    </div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Data Visualisation</h5>
+                                </div>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">
+                                    Generated clean, publication-ready visualisations and exploratory data plots using <strong class="text-brand-600 dark:text-brand-400">ggplot2</strong> to clearly illustrate performance gaps across expansion distances and durations.
+                                </p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-darkbg-900/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="w-8 h-8 rounded-lg bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-dna"></i>
+                                    </div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Physiological Synthesis</h5>
+                                </div>
+                                <p class="text-sm text-slate-600 dark:text-slate-300">
+                                    Interrogated computational outputs through a metabolic lens—examining lipid oxidation, CPT1 kinetics, neuromuscular fatigue resistance, and the Central Governor Theory.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Trigger -->
+                    <div class="pt-4 text-center">
+                        <button onclick="openModal()" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-md transition-all">
+                            <i class="fa-solid fa-magnifying-glass-chart mr-2"></i>
+                            <span>View Deep-Dive Statistics & Methodology</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="msc" class="py-20 bg-white dark:bg-darkbg-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-700 dark:text-brand-500 font-semibold text-sm uppercase tracking-wider block mb-2">Postgraduate Academic Trajectory</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">MSc Biomedical and Analytical Science</h2>
+                <p class="mt-4 text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                    Expanding computational and physiological foundations into advanced analytical instrumentation, precision diagnostics, and quantitative method validation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-900 dark:bg-brand-600 text-brand-400 dark:text-white flex items-center justify-center text-xl font-bold mb-6 shadow-md">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Core Postgraduate Focus</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                            "Expanding on my computational and physiological background, my postgraduate studies focus on the precision measurement of biological systems—combining high-throughput analytical techniques with computational data processing."
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700 text-xs font-semibold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
+                        Translational Research
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-900 dark:bg-brand-600 text-brand-400 dark:text-white flex items-center justify-center text-xl font-bold mb-6 shadow-md">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Advanced Instrumentation</h3>
+                        <ul class="space-y-2.5 text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 dark:text-brand-400 mr-2"></i> HPLC & LC-MS/MS</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 dark:text-brand-400 mr-2"></i> GC-MS & Spectroscopy</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 dark:text-brand-400 mr-2"></i> Quantitative PCR (qPCR)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 dark:text-brand-400 mr-2"></i> Immunoassays & Proteomics</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700 text-xs font-semibold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
+                        Instrumental Proficiency
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-50 dark:bg-darkbg-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-900 dark:bg-brand-600 text-brand-400 dark:text-white flex items-center justify-center text-xl font-bold mb-6 shadow-md">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Upcoming Research Projects</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                            Currently structuring laboratory research modules, analytical method validation reports, and dissertation planning centered around bioinformatic biomarker discovery.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700 text-xs font-semibold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
+                        Future-Proofed Portfolio
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900 dark:bg-darkbg-950 text-white relative overflow-hidden border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brand-400 font-semibold text-sm uppercase tracking-wider block">Get in Touch</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Let's Connect & Collaborate</h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Whether you're interested in my bioinformatic pipeline research, upcoming MSc projects, or potential graduate opportunities in biomedical and analytical science, I would love to hear from you.
+                    </p>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center space-x-4 text-slate-300">
+                            <div class="w-10 h-10 rounded-lg bg-slate-800 dark:bg-darkbg-800 text-brand-400 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Email Address</span>
+                                <span class="font-medium text-white">contact@biomedical-bioinformatician.co.uk</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-slate-300">
+                            <div class="w-10 h-10 rounded-lg bg-slate-800 dark:bg-darkbg-800 text-brand-400 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Location</span>
+                                <span class="font-medium text-white">United Kingdom</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 text-slate-300">
+                            <div class="w-10 h-10 rounded-lg bg-slate-800 dark:bg-darkbg-800 text-brand-400 flex items-center justify-center font-bold">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">GitHub Profile</span>
+                                <span class="font-medium text-white">github.com/[username]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Card -->
+                <div class="lg:col-span-6 bg-slate-800 dark:bg-darkbg-800 border border-slate-700 dark:border-slate-700/80 p-8 rounded-3xl shadow-xl">
+                    <h3 class="text-xl font-bold text-white mb-6">Download Academic CV & Inquiry</h3>
+                    <div class="space-y-5">
+                        <div>
+                            <a href="#cv-download" onclick="triggerCVDownload(event)" class="w-full flex items-center justify-center px-6 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-md transition-all">
+                                <i class="fa-solid fa-file-pdf mr-2 text-lg"></i>
+                                <span>Download Academic CV (PDF)</span>
+                            </a>
+                        </div>
+                        <div class="relative flex py-2 items-center">
+                            <div class="flex-grow border-t border-slate-700"></div>
+                            <span class="flex-shrink mx-4 text-slate-400 text-xs uppercase">Or Send a Message</span>
+                            <div class="flex-grow border-t border-slate-700"></div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Your Name</label>
+                            <input type="text" id="sender-name" class="w-full bg-slate-900 dark:bg-darkbg-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500" placeholder="Dr. Jane Smith">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Your Email</label>
+                            <input type="email" id="sender-email" class="w-full bg-slate-900 dark:bg-darkbg-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500" placeholder="jane@university.ac.uk">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Message</label>
+                            <textarea id="sender-msg" rows="3" class="w-full bg-slate-900 dark:bg-darkbg-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500" placeholder="Inquiry regarding your bioinformatics research..."></textarea>
+                        </div>
+                        <button onclick="submitContactForm()" class="w-full py-3.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-semibold transition-all">
+                            Send Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-8 border-t border-slate-800 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                &copy; 2026 Academic Portfolio. All rights reserved. British English (UK).
+            </div>
+            <div class="flex space-x-6">
+                <a href="#home" class="hover:text-brand-400 transition-colors">Back to top</a>
+                <a href="#about" class="hover:text-brand-400 transition-colors">Skills</a>
+                <a href="#project" class="hover:text-brand-400 transition-colors">BSc Research</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-darkbg-800 text-slate-800 dark:text-slate-200 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 dark:hover:text-white text-xl font-bold p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <span class="text-brand-700 dark:text-brand-400 font-bold text-xs uppercase tracking-wider block mb-1">First-Class Project Deep Dive</span>
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Statistical Pipeline & Physiological Synthesis</h3>
+            </div>
+            <div class="space-y-4 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                <div class="bg-slate-50 dark:bg-darkbg-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-1">1. Data Ingestion & Quality Control</h4>
+                    <p>Ingested raw global race results comprising 7.4 million finishing records. Implemented rigorous data sanitisation protocols in R to remove outliers, validate demographic attributes, and align performance timestamps with external NHANES population health baselines.</p>
+                </div>
+                <div class="bg-slate-50 dark:bg-darkbg-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-1">2. Principal Component Analysis & Hypothesis Testing</h4>
+                    <p>Utilised <code class="bg-slate-200 dark:bg-slate-800 px-1 py-0.5 rounded text-xs font-mono">rstatix</code> and base stats to execute Welch's t-tests and PCA. Demonstrated distinct variance clustering across ultra-endurance distance brackets and biological sex cohorts.</p>
+                </div>
+                <div class="bg-slate-50 dark:bg-darkbg-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-1">3. Biochemical Interpretation</h4>
+                    <p>Synthesised computational outputs with peer-reviewed physiological literature—evaluating how CPT1-mediated fatty-acid transport capacity, glycogen sparing efficiencies, and slow-twitch muscle fibre composition modulate fatigue kinetics during multi-hour exertion.</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-4 border-t border-slate-200 dark:border-slate-700 text-right">
+                <button onclick="closeModal()" class="px-6 py-2.5 rounded-xl bg-slate-900 dark:bg-brand-600 text-white font-semibold text-sm hover:bg-slate-800 dark:hover:bg-brand-700 transition-all">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Box -->
+    <div id="msg-box" class="fixed bottom-6 right-6 z-50 hidden max-w-sm bg-slate-900 text-white p-4 rounded-2xl shadow-2xl border border-slate-700 transition-all transform translate-y-2">
+        <div class="flex items-start space-x-3">
+            <div id="msg-icon" class="text-brand-400 text-xl font-bold">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+                <h5 id="msg-title" class="font-bold text-sm">Notification</h5>
+                <p id="msg-text" class="text-xs text-slate-300 mt-0.5">Action completed successfully.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark Mode Logic
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+        const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+
+        function updateThemeIcons() {
+            if (document.documentElement.classList.contains('dark')) {
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleLightIcon.classList.remove('hidden');
+                if(themeToggleDarkIconMobile) {
+                    themeToggleDarkIconMobile.classList.add('hidden');
+                    themeToggleLightIconMobile.classList.remove('hidden');
+                }
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+                if(themeToggleDarkIconMobile) {
+                    themeToggleDarkIconMobile.classList.remove('hidden');
+                    themeToggleLightIconMobile.classList.add('hidden');
+                }
+            }
+        }
+
+        updateThemeIcons();
+
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            updateThemeIcons();
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleDarkMode);
+        if(document.getElementById('theme-toggle-mobile')) {
+            document.getElementById('theme-toggle-mobile').addEventListener('click', toggleDarkMode);
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Skills Tab Switcher
+        function switchTab(tabName) {
+            document.querySelectorAll('.skills-tab').forEach(btn => {
+                btn.classList.remove('bg-slate-900', 'dark:bg-brand-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'dark:bg-darkbg-800', 'text-slate-600', 'dark:text-slate-300');
+            });
+
+            const activeBtn = document.getElementById('btn-' + tabName);
+            activeBtn.classList.remove('bg-slate-100', 'dark:bg-darkbg-800', 'text-slate-600', 'dark:text-slate-300');
+            activeBtn.classList.add('bg-slate-900', 'dark:bg-brand-600', 'text-white', 'shadow-sm');
+
+            document.querySelectorAll('.skills-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+        }
+
+        // Modal Controls
+        function openModal() {
+            document.getElementById('project-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Notifications
+        function showNotification(title, text) {
+            const box = document.getElementById('msg-box');
+            document.getElementById('msg-title').innerText = title;
+            document.getElementById('msg-text').innerText = text;
+            box.classList.remove('hidden');
+            setTimeout(() => {
+                box.classList.add('hidden');
+            }, 4000);
+        }
+
+        function triggerCVDownload(e) {
+            e.preventDefault();
+            showNotification("Academic CV", "CV download simulation initiated. (Link your PDF file in production).");
+        }
+
+        function submitContactForm() {
+            const name = document.getElementById('sender-name').value.trim();
+            const email = document.getElementById('sender-email').value.trim();
+            const msg = document.getElementById('sender-msg').value.trim();
+
+            if(!name || !email || !msg) {
+                showNotification("Incomplete Form", "Please fill in all fields before sending your message.");
+                return;
+            }
+
+            showNotification("Message Sent", "Thank you, " + name + "! Your inquiry has been received.");
+            document.getElementById('sender-name').value = '';
+            document.getElementById('sender-email').value = '';
+            document.getElementById('sender-msg').value = '';
+        }
+    </script>
+</body>
+</html>
