@@ -11,70 +11,99 @@
             theme: {
                 extend: {
                     colors: {
-                        scientific: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                            900: '#064e3b',
-                            950: '#022c22'
+                        editorial: {
+                            50: '#f8f6f0',
+                            100: '#ede8dc',
+                            200: '#d9cfbc',
+                            300: '#bfae93',
+                            400: '#a38f70',
+                            500: '#877353',
+                            600: '#6c5a41',
+                            700: '#544533',
+                            800: '#3d3225',
+                            900: '#261f18',
+                            950: '#171310'
+                        },
+                        sage: {
+                            50: '#f4f6f4',
+                            100: '#e5eae5',
+                            200: '#ccd5cc',
+                            300: '#a8b8a8',
+                            400: '#7e947e',
+                            500: '#5c735c',
+                            600: '#485c48',
+                            700: '#3c4b3c',
+                            800: '#313d31',
+                            900: '#222922',
+                            950: '#131713'
                         }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        code, pre, .font-mono {
-            font-family: 'JetBrains Mono', monospace;
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', Georgia, serif;
         }
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(135, 115, 83, 0.15);
         }
-        .dark .bg-grid {
-            background-image: linear-gradient(to right, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+        .dark .glass-panel {
+            background: rgba(31, 26, 21, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(163, 143, 112, 0.15);
+        }
+        .editorial-gradient {
+            background: radial-gradient(circle at top right, rgba(92, 115, 92, 0.12), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(135, 115, 83, 0.1), transparent 50%);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 dark:bg-[#0b0f19] dark:text-slate-100 transition-colors duration-300">
+<body class="bg-[#fcfbf9] text-[#261f18] dark:bg-[#14110e] dark:text-[#f4f6f4] transition-colors duration-500 editorial-gradient min-h-screen">
 
     <!-- Top Navigation -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-[#0b0f19]/80 border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-[#fcfbf9]/80 dark:bg-[#14110e]/80 border-b border-[#d9cfbc]/40 dark:border-[#3d3225]/50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold shadow-md shadow-emerald-600/20">
-                        HAI
+                    <div class="w-10 h-10 rounded-full bg-sage-600 dark:bg-editorial-500 flex items-center justify-center text-white font-serif font-bold text-lg shadow-sm">
+                        H
                     </div>
                     <div>
-                        <span class="font-bold text-base tracking-tight block">Haider Ali Iqbal</span>
-                        <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Biomedicine & Bioinformatics</span>
+                        <span class="font-serif font-bold text-lg tracking-wide block">Haider Ali Iqbal</span>
+                        <span class="text-[11px] uppercase tracking-widest text-sage-600 dark:text-editorial-400 font-semibold">Biomedicine & Bioinformatics</span>
                     </div>
                 </div>
                 
-                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                    <a href="#home" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Home</a>
-                    <a href="#about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition">About & Skills</a>
-                    <a href="#research" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition">BSc Research</a>
-                    <a href="#msc" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Msc Journey</a>
-                    <a href="#contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition">Contact & CV</a>
+                <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
+                    <a href="#home" class="hover:text-sage-600 dark:hover:text-editorial-300 transition">Home</a>
+                    <a href="#about" class="hover:text-sage-600 dark:hover:text-editorial-300 transition">Expertise</a>
+                    <a href="#research" class="hover:text-sage-600 dark:hover:text-editorial-300 transition">Research</a>
+                    <a href="#msc" class="hover:text-sage-600 dark:hover:text-editorial-300 transition">MSc Journey</a>
+                    <a href="#contact" class="hover:text-sage-600 dark:hover:text-editorial-300 transition">Contact</a>
                 </div>
 
                 <div class="flex items-center space-x-3">
-                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition" aria-label="Toggle theme">
+                    <button id="theme-toggle" class="p-2.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#bfae93] hover:text-sage-600 dark:hover:text-editorial-200 transition shadow-sm" aria-label="Toggle theme">
                         <!-- Sun Icon -->
-                        <svg id="theme-icon-light" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg id="theme-icon-light" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         <!-- Moon Icon -->
-                        <svg id="theme-icon-dark" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                        <svg id="theme-icon-dark" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                     </button>
                 </div>
             </div>
@@ -82,75 +111,77 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative overflow-hidden bg-grid py-20 lg:py-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-semibold tracking-wide">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+    <section id="home" class="relative py-24 lg:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] border border-[#d9cfbc] dark:border-[#3d3225] text-sage-700 dark:text-editorial-300 text-xs font-semibold tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-sage-600 dark:bg-editorial-400 animate-pulse"></span>
                         <span>BSc Biomedical Science Graduate (2:1) • MSc Candidate</span>
                     </div>
                     
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                        Bridging Laboratory <span class="text-emerald-600 dark:text-emerald-400">Biomedicine & Computational Biology</span>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-serif font-normal tracking-tight leading-[1.1]">
+                        Bridging Laboratory <span class="italic font-light text-sage-600 dark:text-editorial-400">Biomedicine</span> & Computational Biology.
                     </h1>
                     
-                    <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+                    <p class="text-lg sm:text-xl text-[#544533] dark:text-[#bfae93] max-w-2xl font-light leading-relaxed">
                         Biomedical Science graduate and bioinformatician specialising in massive-scale data processing in R, metabolic physiology, cancer biology wet-lab workflows, and advanced analytical instrumentation.
                     </p>
 
-                    <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="#research" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-lg shadow-emerald-600/20 transition flex items-center space-x-2">
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#research" class="px-8 py-4 rounded-full bg-sage-600 hover:bg-sage-700 dark:bg-editorial-500 dark:hover:bg-editorial-600 text-white font-medium text-sm tracking-wider uppercase shadow-lg shadow-sage-600/20 dark:shadow-editorial-500/20 transition duration-300 flex items-center space-x-3">
                             <span>Explore BSc Research</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
-                        <a href="#contact" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 font-semibold transition">
-                            View CV & Contact
+                        <a href="#contact" class="px-8 py-4 rounded-full glass-panel hover:border-sage-500 dark:hover:border-editorial-400 font-medium text-sm tracking-wider uppercase transition duration-300">
+                            Get In Touch
                         </a>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <div class="grid grid-cols-3 gap-8 pt-12 border-t border-[#d9cfbc]/60 dark:border-[#3d3225]">
                         <div>
-                            <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">7.4M+</div>
-                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">Data Points Analysed</div>
+                            <div class="text-3xl font-serif font-bold text-sage-600 dark:text-editorial-400">7.4M+</div>
+                            <div class="text-xs text-[#6c5a41] dark:text-[#a38f70] tracking-wider uppercase font-medium mt-1">Data Points Analysed</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">First-Class</div>
-                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">Undergraduate Project</div>
+                            <div class="text-3xl font-serif font-bold text-sage-600 dark:text-editorial-400">First-Class</div>
+                            <div class="text-xs text-[#6c5a41] dark:text-[#a38f70] tracking-wider uppercase font-medium mt-1">Undergraduate Project</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">R / Tidyverse</div>
-                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">Computational Pipeline</div>
+                            <div class="text-3xl font-serif font-bold text-sage-600 dark:text-editorial-400">R / Tidyverse</div>
+                            <div class="text-xs text-[#6c5a41] dark:text-[#a38f70] tracking-wider uppercase font-medium mt-1">Computational Pipeline</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Code Preview Card -->
+                <!-- Editorial Code / Visual Card -->
                 <div class="lg:col-span-5">
-                    <div class="rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden">
-                        <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                            <div class="flex items-center space-x-2">
-                                <div class="w-3 h-3 rounded-full bg-rose-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    <div class="rounded-3xl glass-panel p-2 shadow-2xl relative overflow-hidden">
+                        <div class="rounded-2xl bg-[#1f1a1d] dark:bg-[#0b0f19] border border-[#3d3225] overflow-hidden">
+                            <div class="px-5 py-4 border-b border-[#3d3225] flex items-center justify-between bg-[#171310] dark:bg-[#06090e]">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-3 h-3 rounded-full bg-[#d97706]"></div>
+                                    <div class="w-3 h-3 rounded-full bg-[#ca8a04]"></div>
+                                    <div class="w-3 h-3 rounded-full bg-[#16a34a]"></div>
+                                </div>
+                                <span class="text-xs font-mono text-[#a38f70]">pipeline.R</span>
+                                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-[#3d3225] text-[#d9cfbc] font-mono tracking-wider">Active Research</span>
                             </div>
-                            <span class="text-xs font-mono text-slate-400">pipeline.R</span>
-                            <span class="text-xs px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 font-mono">Active Research</span>
-                        </div>
-                        <div class="p-5 font-mono text-xs sm:text-sm text-slate-300 overflow-x-auto space-y-2">
-                            <p class="text-slate-500"># Load Bioinformatics Libraries</p>
-                            <p><span class="text-purple-400">library</span>(tidyverse)</p>
-                            <p><span class="text-purple-400">library</span>(rstatix)</p>
-                            <p><span class="text-purple-400">library</span>(ggplot2)</p>
-                            <p class="text-slate-500 pt-2"># Pipeline Execution: Ultramarathon Scaling</p>
-                            <p>df_clean &lt;- raw_data <span class="text-emerald-400">%&gt;%</span></p>
-                            <p class="pl-4"><span class="text-blue-400">filter</span>(complete.cases(.)) <span class="text-emerald-400">%&gt;%</span></p>
-                            <p class="pl-4"><span class="text-blue-400">mutate</span>(z_score = <span class="text-blue-400">scale</span>(metric))</p>
-                            <p class="text-emerald-400 pt-2"># Output: PCA & Welch's t-tests validated</p>
-                        </div>
-                        <div class="bg-slate-950/60 px-4 py-3 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
-                            <span>Reproducible Science</span>
-                            <span class="text-emerald-400 font-medium">RStudio Environment</span>
+                            <div class="p-6 font-mono text-xs sm:text-sm text-[#e5eae5] space-y-3">
+                                <p class="text-[#877353]"># Load Bioinformatics Libraries</p>
+                                <p><span class="text-[#f472b6]">library</span>(tidyverse)</p>
+                                <p><span class="text-[#f472b6]">library</span>(rstatix)</p>
+                                <p><span class="text-[#f472b6]">library</span>(ggplot2)</p>
+                                <p class="text-[#877353] pt-2"># Pipeline Execution: Ultramarathon Scaling</p>
+                                <p>df_clean &lt;- raw_data <span class="text-[#34d399]">%&gt;%</span></p>
+                                <p class="pl-4"><span class="text-[#60a5fa]">filter</span>(complete.cases(.)) <span class="text-[#34d399]">%&gt;%</span></p>
+                                <p class="pl-4"><span class="text-[#60a5fa]">mutate</span>(z_score = <span class="text-[#60a5fa]">scale</span>(metric))</p>
+                                <p class="text-[#34d399] pt-2"># Output: PCA & Welch's t-tests validated</p>
+                            </div>
+                            <div class="px-5 py-3 border-t border-[#3d3225] bg-[#171310] dark:bg-[#06090e] flex justify-between items-center text-xs text-[#a38f70]">
+                                <span>Reproducible Science</span>
+                                <span class="text-editorial-300 font-medium font-mono">RStudio v4.3</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -159,147 +190,147 @@
     </section>
 
     <!-- About & Skills Section -->
-    <section id="about" class="py-20 bg-white dark:bg-[#0f1423] border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <span class="text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-widest">Background & Competencies</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">About Me & Technical Expertise</h2>
-                <p class="text-slate-600 dark:text-slate-300 text-base">
+    <section id="about" class="py-24 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]/60 bg-[#f4f2ec] dark:bg-[#191512]">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <span class="text-sage-600 dark:text-editorial-400 text-xs font-bold uppercase tracking-widest">Background & Competencies</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-normal">About Me & Technical Expertise</h2>
+                <p class="text-[#6c5a41] dark:text-[#bfae93] text-base sm:text-lg font-light leading-relaxed">
                     Combining wet-lab biomedical fundamentals with scalable computational pipelines to interrogate complex biological datasets, metabolic pathways, and endurance kinetics.
                 </p>
             </div>
 
-            <!-- Profile Summary Card -->
-            <div class="grid lg:grid-cols-12 gap-8 items-start mb-12">
-                <div class="lg:col-span-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-6">
-                    <div class="w-20 h-20 rounded-2xl bg-emerald-600 flex items-center justify-center text-white shadow-lg shadow-emerald-600/20">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            <!-- Profile Summary Bento Box -->
+            <div class="grid lg:grid-cols-12 gap-8 items-stretch mb-16">
+                <div class="lg:col-span-4 rounded-3xl glass-panel p-8 space-y-6 flex flex-col justify-between shadow-sm">
+                    <div class="w-16 h-16 rounded-2xl bg-sage-600 dark:bg-editorial-500 flex items-center justify-center text-white shadow-md">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold">Biomedical Science Graduate</h3>
-                        <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mt-1">Specialising in Bioinformatics & Analytical Science</p>
+                        <h3 class="text-2xl font-serif font-bold">Biomedical Science Graduate</h3>
+                        <p class="text-xs text-sage-600 dark:text-editorial-400 font-semibold uppercase tracking-wider mt-1">Specialising in Bioinformatics & Analytical Science</p>
                     </div>
-                    <div class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                        <div class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <div class="space-y-3 text-sm text-[#544533] dark:text-[#bfae93] pt-4 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-4 h-4 text-sage-600 dark:text-editorial-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
                             <span>United Kingdom</span>
                         </div>
-                        <div class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-4 h-4 text-sage-600 dark:text-editorial-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             <span>Open for academic & industry roles</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-8 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 space-y-6">
-                    <p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-                        I am a Biomedical Science graduate (<strong class="text-slate-900 dark:text-white">BSc 2:1 with a First-Class project mark</strong>) specialising in bioinformatics, computational biology, and biochemical/metabolic physiology. My academic work bridges massive dataset processing with deep human physiology—leveraging <strong class="text-slate-900 dark:text-white">R</strong> to uncover biological patterns and performance limits.
+                <div class="lg:col-span-8 rounded-3xl glass-panel p-8 sm:p-12 space-y-6 shadow-sm flex flex-col justify-center">
+                    <p class="text-lg text-[#3d3225] dark:text-[#e5eae5] font-light leading-relaxed">
+                        I am a Biomedical Science graduate (<strong class="font-semibold text-[#261f18] dark:text-white">BSc 2:1 with a First-Class project mark</strong>) specialising in bioinformatics, computational biology, and biochemical/metabolic physiology. My academic work bridges massive dataset processing with deep human physiology—leveraging <strong class="font-semibold text-[#261f18] dark:text-white">R</strong> to uncover biological patterns and performance limits.
                     </p>
-                    <p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-                        Currently advancing my expertise through an <strong class="text-slate-900 dark:text-white">MSc in Biomedical and Analytical Science</strong>, my focus centres on applying rigorous analytical techniques, chromatography, mass spectrometry, and bioinformatic pipelines to solve complex biomedical questions.
+                    <p class="text-lg text-[#3d3225] dark:text-[#e5eae5] font-light leading-relaxed">
+                        Currently advancing my expertise through an <strong class="font-semibold text-[#261f18] dark:text-white">MSc in Biomedical and Analytical Science</strong>, my focus centres on applying rigorous analytical techniques, chromatography, mass spectrometry, and bioinformatic pipelines to solve complex biomedical questions.
                     </p>
                 </div>
             </div>
 
             <!-- Skills Navigation Tabs -->
-            <div class="flex justify-center mb-8">
-                <div class="inline-flex rounded-xl bg-slate-100 dark:bg-slate-800 p-1.5 space-x-2">
-                    <button onclick="switchTab('bioinformatics')" id="btn-bioinformatics" class="px-5 py-2.5 rounded-lg text-sm font-semibold transition bg-emerald-600 text-white shadow">Bioinformatics & R</button>
-                    <button onclick="switchTab('laboratory')" id="btn-laboratory" class="px-5 py-2.5 rounded-lg text-sm font-semibold transition text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">Laboratory & Analytical</button>
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-full bg-[#ede8dc] dark:bg-[#261f18] p-1.5 space-x-2 border border-[#d9cfbc]/60 dark:border-[#3d3225]">
+                    <button onclick="switchTab('bioinformatics')" id="btn-bioinformatics" class="px-6 py-3 rounded-full text-sm font-medium tracking-wide transition duration-300 bg-sage-600 dark:bg-editorial-500 text-white shadow-sm">Bioinformatics & R</button>
+                    <button onclick="switchTab('laboratory')" id="btn-laboratory" class="px-6 py-3 rounded-full text-sm font-medium tracking-wide transition duration-300 text-[#6c5a41] dark:text-[#bfae93] hover:text-[#261f18] dark:hover:text-white">Laboratory & Analytical</button>
                 </div>
             </div>
 
             <!-- Tab Content 1: Bioinformatics -->
-            <div id="tab-bioinformatics" class="grid md:grid-cols-3 gap-6">
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+            <div id="tab-bioinformatics" class="grid md:grid-cols-3 gap-8">
+                <div class="rounded-3xl glass-panel p-8 space-y-4 hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                     </div>
-                    <h4 class="text-lg font-bold">Languages & Environments</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">Proficient in R and RStudio for statistical programming, reproducible reporting, and pipeline automation.</p>
+                    <h4 class="text-xl font-serif font-bold">Languages & Environments</h4>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Proficient in R and RStudio for statistical programming, reproducible reporting, and pipeline automation.</p>
                     <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">R & RStudio</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">Markdown</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">Git / GitHub</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">R & RStudio</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Markdown</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Git / GitHub</span>
                     </div>
                 </div>
 
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                <div class="rounded-3xl glass-panel p-8 space-y-4 hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
                     </div>
-                    <h4 class="text-lg font-bold">Data Wrangling & Tidyverse</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">Skilled in cleaning, standardising, and merging massive datasets (millions of rows) with high efficiency.</p>
+                    <h4 class="text-xl font-serif font-bold">Data Wrangling & Tidyverse</h4>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Skilled in cleaning, standardising, and merging massive datasets (millions of rows) with high efficiency.</p>
                     <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">tidyverse</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">dplyr</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">Data Cleaning</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">tidyverse</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">dplyr</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Data Cleaning</span>
                     </div>
                 </div>
 
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                <div class="rounded-3xl glass-panel p-8 space-y-4 hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
                     </div>
-                    <h4 class="text-lg font-bold">Statistics & Visualisation</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">Applying PCA, Welch's t-tests, and advanced statistical modeling with publication-ready ggplot2 visualisations.</p>
+                    <h4 class="text-xl font-serif font-bold">Statistics & Visualisation</h4>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Applying PCA, Welch's t-tests, and advanced statistical modeling with publication-ready ggplot2 visualisations.</p>
                     <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">ggplot2</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">rstatix</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">PCA & t-tests</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">ggplot2</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">rstatix</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">PCA & t-tests</span>
                     </div>
                 </div>
             </div>
 
             <!-- Tab Content 2: Laboratory -->
-            <div id="tab-laboratory" class="hidden grid md:grid-cols-4 gap-6">
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            <div id="tab-laboratory" class="hidden grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="rounded-3xl glass-panel p-8 space-y-4 hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                     </div>
-                    <h4 class="text-lg font-bold">Cancer Biology & Histology</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">Hands-on experience in H&E staining, Immunohistochemistry (IHC), and maintenance of cancer cell cultures.</p>
+                    <h4 class="text-xl font-serif font-bold">Cancer Biology & Histology</h4>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Hands-on experience in H&E staining, Immunohistochemistry (IHC), and maintenance of cancer cell cultures.</p>
                     <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">IHC</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">H&E Staining</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">Cell Culture</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">IHC</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">H&E Staining</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Cell Culture</span>
                     </div>
                 </div>
 
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                <div class="rounded-3xl glass-panel p-8 space-y-4 hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                     </div>
-                    <h4 class="text-lg font-bold">Microbiology & Molecular</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">Proficiency in microbial/cell culture, antimicrobial resistance (AMR) testing, and protein separation via SDS-PAGE.</p>
+                    <h4 class="text-xl font-serif font-bold">Microbiology & Molecular</h4>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Proficiency in microbial/cell culture, antimicrobial resistance (AMR) testing, and protein separation via SDS-PAGE.</p>
                     <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">Microbial Culture</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">AMR</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">SDS-PAGE</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Microbial Culture</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">AMR</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">SDS-PAGE</span>
                     </div>
                 </div>
 
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                <div class="rounded-3xl glass-panel p-8 space-y-4 hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                     </div>
-                    <h4 class="text-lg font-bold">Haematology & Electrophoresis</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">Experienced in blood film preparation, microscopic analysis, and agar gel electrophoresis techniques.</p>
+                    <h4 class="text-xl font-serif font-bold">Haematology & Electrophoresis</h4>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Experienced in blood film preparation, microscopic analysis, and agar gel electrophoresis techniques.</p>
                     <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">Blood Film</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">Agar Gel</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Blood Film</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Agar Gel</span>
                     </div>
                 </div>
 
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                <div class="rounded-3xl glass-panel p-8 space-y-4 hover:shadow-lg transition duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
                     </div>
-                    <h4 class="text-lg font-bold">Biochemistry Assays</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">Execution of quantitative protein assays and high-precision serial dilutions for analytical testing.</p>
+                    <h4 class="text-xl font-serif font-bold">Biochemistry Assays</h4>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Execution of quantitative protein assays and high-precision serial dilutions for analytical testing.</p>
                     <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">Protein Assays</span>
-                        <span class="text-xs px-2.5 py-1 rounded-md bg-slate-200 dark:bg-slate-800 font-mono">Serial Dilutions</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Protein Assays</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Serial Dilutions</span>
                     </div>
                 </div>
             </div>
@@ -307,59 +338,59 @@
     </section>
 
     <!-- BSc Research Showcase Section -->
-    <section id="research" class="py-20 bg-slate-50 dark:bg-[#0b0f19] border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <span class="text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-widest">Undergraduate Thesis Cornerstone</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Undergraduate Project Showcase</h2>
-                <p class="text-slate-600 dark:text-slate-300 text-base">
+    <section id="research" class="py-24 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <span class="text-sage-600 dark:text-editorial-400 text-xs font-bold uppercase tracking-widest">Undergraduate Thesis Cornerstone</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-normal">Undergraduate Project Showcase</h2>
+                <p class="text-[#6c5a41] dark:text-[#bfae93] text-base sm:text-lg font-light leading-relaxed">
                     A rigorous bioinformatic investigation combining massive performance datasets with deep physiological and metabolic analysis.
                 </p>
             </div>
 
-            <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 lg:p-12 shadow-xl space-y-8">
+            <div class="rounded-3xl glass-panel p-8 lg:p-14 shadow-xl space-y-10">
                 <div class="flex flex-wrap gap-3">
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold">FIRST-CLASS PROJECT MARK</span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium">BSc Biomedical Science (2:1 Overall)</span>
-                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium">Supervisor: Dr. Richard Bingham</span>
+                    <span class="px-4 py-1.5 rounded-full bg-sage-600 text-white dark:bg-editorial-500 text-xs font-bold tracking-wider">FIRST-CLASS PROJECT MARK</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#d9cfbc] text-xs font-medium">BSc Biomedical Science (2:1 Overall)</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#d9cfbc] text-xs font-medium">Supervisor: Dr. Richard Bingham</span>
                 </div>
 
-                <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                <h3 class="text-3xl sm:text-4xl font-serif font-normal tracking-tight leading-snug">
                     Biological Sex Differences and the Limits of Human Endurance: A Bioinformatics Approach to Ultramarathon Data
                 </h3>
 
                 <div class="space-y-4">
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Abstract & Overview</h4>
-                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
-                        This research investigated the physiological and statistical limits of human endurance through a sex-comparative lens. By building a scalable data-processing pipeline in <strong class="text-slate-900 dark:text-white">R</strong>, a global dataset of <strong class="text-slate-900 dark:text-white">7.4 million ultramarathon finishing times</strong> was cleaned, standardised, and integrated with population health benchmarks from the NHANES database. The study evaluated how sex-specific differences in substrate utilisation, fat oxidation rates, CPT1-mediated fatty-acid transport, and glycogen sparing influence fatigue kinetics during prolonged exertion, synthesizing computational findings with physiological literature surrounding muscle fibre composition, thermoregulation, and the Central Governor Theory.
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-sage-600 dark:text-editorial-400 font-mono">Abstract & Overview</h4>
+                    <p class="text-[#3d3225] dark:text-[#e5eae5] leading-relaxed text-base sm:text-lg font-light">
+                        This research investigated the physiological and statistical limits of human endurance through a sex-comparative lens. By building a scalable data-processing pipeline in <strong class="font-semibold text-[#261f18] dark:text-white">R</strong>, a global dataset of <strong class="font-semibold text-[#261f18] dark:text-white">7.4 million ultramarathon finishing times</strong> was cleaned, standardised, and integrated with population health benchmarks from the NHANES database. The study evaluated how sex-specific differences in substrate utilisation, fat oxidation rates, CPT1-mediated fatty-acid transport, and glycogen sparing influence fatigue kinetics during prolonged exertion, synthesizing computational findings with physiological literature surrounding muscle fibre composition, thermoregulation, and the Central Governor Theory.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-slate-200 dark:border-slate-800">
-                    <div class="space-y-2">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">1</div>
-                        <h5 class="font-bold text-sm">Data Processing & Engineering</h5>
-                        <p class="text-xs text-slate-600 dark:text-slate-300">Built a scalable data-processing pipeline in <strong class="text-slate-900 dark:text-white">R and RStudio</strong> using tidyverse and dplyr to clean, standardise, and merge massive-scale performance metrics (7.4M records) with external population health datasets (NHANES).</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">1</div>
+                        <h5 class="font-serif font-bold text-lg">Data Processing & Engineering</h5>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Built a scalable data-processing pipeline in <strong class="font-medium text-[#261f18] dark:text-white">R and RStudio</strong> using tidyverse and dplyr to clean, standardise, and merge massive-scale performance metrics (7.4M records) with external population health datasets (NHANES).</p>
                     </div>
-                    <div class="space-y-2">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">2</div>
-                        <h5 class="font-bold text-sm">Statistical Analysis</h5>
-                        <p class="text-xs text-slate-600 dark:text-slate-300">Applied <strong class="text-slate-900 dark:text-white">Principal Component Analysis (PCA), Welch's t-tests</strong>, and advanced statistical models using rstatix to evaluate multi-variable performance trends and systemic lipid profiles.</p>
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">2</div>
+                        <h5 class="font-serif font-bold text-lg">Statistical Analysis</h5>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Applied <strong class="font-medium text-[#261f18] dark:text-white">Principal Component Analysis (PCA), Welch's t-tests</strong>, and advanced statistical models using rstatix to evaluate multi-variable performance trends and systemic lipid profiles.</p>
                     </div>
-                    <div class="space-y-2">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">3</div>
-                        <h5 class="font-bold text-sm">Data Visualisation</h5>
-                        <p class="text-xs text-slate-600 dark:text-slate-300">Generated clean, publication-ready visualisations and exploratory data plots using <strong class="text-slate-900 dark:text-white">ggplot2</strong> to clearly illustrate performance gaps across expansion distances and durations.</p>
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">3</div>
+                        <h5 class="font-serif font-bold text-lg">Data Visualisation</h5>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Generated clean, publication-ready visualisations and exploratory data plots using <strong class="font-medium text-[#261f18] dark:text-white">ggplot2</strong> to clearly illustrate performance gaps across expansion distances and durations.</p>
                     </div>
-                    <div class="space-y-2">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">4</div>
-                        <h5 class="font-bold text-sm">Physiological Synthesis</h5>
-                        <p class="text-xs text-slate-600 dark:text-slate-300">Interrogated computational outputs through a metabolic lens—examining lipid oxidation, CPT1 kinetics, neuromuscular fatigue resistance, and the Central Governor Theory.</p>
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">4</div>
+                        <h5 class="font-serif font-bold text-lg">Physiological Synthesis</h5>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Interrogated computational outputs through a metabolic lens—examining lipid oxidation, CPT1 kinetics, neuromuscular fatigue resistance, and the Central Governor Theory.</p>
                     </div>
                 </div>
 
-                <div class="pt-4 flex justify-end">
-                    <button onclick="openModal()" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md transition flex items-center space-x-2">
+                <div class="pt-6 flex justify-end">
+                    <button onclick="openModal()" class="px-8 py-4 rounded-full bg-sage-600 hover:bg-sage-700 dark:bg-editorial-500 dark:hover:bg-editorial-600 text-white font-medium text-sm tracking-wider uppercase shadow-md transition duration-300 flex items-center space-x-3">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                         <span>View Deep-Dive Statistics & Methodology</span>
                     </button>
@@ -369,70 +400,70 @@
     </section>
 
     <!-- MSc Section -->
-    <section id="msc" class="py-20 bg-white dark:bg-[#0f1423] border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <span class="text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-widest">Postgraduate Academic Trajectory</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">MSc Biomedical and Analytical Science</h2>
-                <p class="text-slate-600 dark:text-slate-300 text-base">
+    <section id="msc" class="py-24 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]/60 bg-[#f4f2ec] dark:bg-[#191512]">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <span class="text-sage-600 dark:text-editorial-400 text-xs font-bold uppercase tracking-widest">Postgraduate Academic Trajectory</span>
+                <h2 class="text-4xl sm:text-5xl font-serif font-normal">MSc Biomedical and Analytical Science</h2>
+                <p class="text-[#6c5a41] dark:text-[#bfae93] text-base sm:text-lg font-light leading-relaxed">
                     Expanding computational and physiological foundations into advanced analytical instrumentation, precision diagnostics, and quantitative method validation.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 space-y-4 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                <div class="rounded-3xl glass-panel p-10 space-y-6 flex flex-col justify-between shadow-sm hover:shadow-md transition duration-300">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold">Term 1 Modules</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <h3 class="text-2xl font-serif font-bold">Term 1 Modules</h3>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">
                             Currently undertaking core postgraduate coursework focusing on molecular genetics, pathological mechanisms, biochemical assays, and emerging biomedical technologies.
                         </p>
-                        <ul class="space-y-2 text-xs text-slate-700 dark:text-slate-300 font-medium pt-2">
-                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Advanced Genomics and Gene Expression</span></li>
-                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Biological Aspects of Disease</span></li>
-                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Biochemical Methods</span></li>
-                            <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Emerging Technologies in Biomedicine</span></li>
+                        <ul class="space-y-3 text-xs text-[#3d3225] dark:text-[#d9cfbc] font-medium pt-2">
+                            <li class="flex items-center space-x-3"><span class="w-2 h-2 rounded-full bg-sage-600 dark:bg-editorial-400"></span><span>Advanced Genomics and Gene Expression</span></li>
+                            <li class="flex items-center space-x-3"><span class="w-2 h-2 rounded-full bg-sage-600 dark:bg-editorial-400"></span><span>Biological Aspects of Disease</span></li>
+                            <li class="flex items-center space-x-3"><span class="w-2 h-2 rounded-full bg-sage-600 dark:bg-editorial-400"></span><span>Biochemical Methods</span></li>
+                            <li class="flex items-center space-x-3"><span class="w-2 h-2 rounded-full bg-sage-600 dark:bg-editorial-400"></span><span>Emerging Technologies in Biomedicine</span></li>
                         </ul>
                     </div>
-                    <div class="pt-6 border-t border-slate-200 dark:border-slate-800 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                    <div class="pt-6 border-t border-[#d9cfbc]/40 dark:border-[#3d3225] text-xs font-bold text-sage-700 dark:text-editorial-400 tracking-wider font-mono">
                         CURRENT ENROLMENT
                     </div>
                 </div>
 
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 space-y-4 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                <div class="rounded-3xl glass-panel p-10 space-y-6 flex flex-col justify-between shadow-sm hover:shadow-md transition duration-300">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold">Advanced Instrumentation</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <h3 class="text-2xl font-serif font-bold">Advanced Instrumentation</h3>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">
                             Training on high-precision analytical hardware and separation techniques for biomedical and metabolic quantification.
                         </p>
-                        <ul class="space-y-2 text-xs text-slate-700 dark:text-slate-300 font-medium pt-2">
-                            <li class="flex items-center space-x-2"><span class="text-emerald-500 font-bold">✓</span><span>HPLC & LC-MS/MS</span></li>
-                            <li class="flex items-center space-x-2"><span class="text-emerald-500 font-bold">✓</span><span>GC-MS & Spectroscopy</span></li>
-                            <li class="flex items-center space-x-2"><span class="text-emerald-500 font-bold">✓</span><span>Quantitative PCR (qPCR)</span></li>
-                            <li class="flex items-center space-x-2"><span class="text-emerald-500 font-bold">✓</span><span>Immunoassays & Proteomics</span></li>
+                        <ul class="space-y-3 text-xs text-[#3d3225] dark:text-[#d9cfbc] font-medium pt-2">
+                            <li class="flex items-center space-x-3"><span class="text-sage-600 dark:text-editorial-400 font-bold">✓</span><span>HPLC & LC-MS/MS</span></li>
+                            <li class="flex items-center space-x-3"><span class="text-sage-600 dark:text-editorial-400 font-bold">✓</span><span>GC-MS & Spectroscopy</span></li>
+                            <li class="flex items-center space-x-3"><span class="text-sage-600 dark:text-editorial-400 font-bold">✓</span><span>Quantitative PCR (qPCR)</span></li>
+                            <li class="flex items-center space-x-3"><span class="text-sage-600 dark:text-editorial-400 font-bold">✓</span><span>Immunoassays & Proteomics</span></li>
                         </ul>
                     </div>
-                    <div class="pt-6 border-t border-slate-200 dark:border-slate-800 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                    <div class="pt-6 border-t border-[#d9cfbc]/40 dark:border-[#3d3225] text-xs font-bold text-sage-700 dark:text-editorial-400 tracking-wider font-mono">
                         INSTRUMENTAL PROFICIENCY
                     </div>
                 </div>
 
-                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 space-y-4 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="rounded-3xl glass-panel p-10 space-y-6 flex flex-col justify-between shadow-sm hover:shadow-md transition duration-300">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold">Upcoming Research Projects</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <h3 class="text-2xl font-serif font-bold">Upcoming Research Projects</h3>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">
                             Developing laboratory research modules, analytical method validation reports, and dissertation planning centred around bioinformatic biomarker discovery.
                         </p>
                     </div>
-                    <div class="pt-6 border-t border-slate-200 dark:border-slate-800 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                    <div class="pt-6 border-t border-[#d9cfbc]/40 dark:border-[#3d3225] text-xs font-bold text-sage-700 dark:text-editorial-400 tracking-wider font-mono">
                         FUTURE-PROOFED PORTFOLIO
                     </div>
                 </div>
@@ -441,88 +472,77 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-slate-50 dark:bg-[#0b0f19] border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5 space-y-6">
-                    <span class="text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-widest">Get In Touch</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Let's Connect & Collaborate</h2>
-                    <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+    <section id="contact" class="py-24 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]/60">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 space-y-8">
+                    <span class="text-sage-600 dark:text-editorial-400 text-xs font-bold uppercase tracking-widest">Get In Touch</span>
+                    <h2 class="text-4xl sm:text-5xl font-serif font-normal">Let's Connect & Collaborate</h2>
+                    <p class="text-[#6c5a41] dark:text-[#bfae93] text-base sm:text-lg font-light leading-relaxed">
                         Whether you're interested in my bioinformatic pipeline research, upcoming MSc projects, or potential graduate opportunities in biomedical and analytical science, I would love to hear from you.
                     </p>
 
-                    <div class="space-y-4 pt-2 text-sm">
-                        <div class="flex items-center space-x-3 text-slate-700 dark:text-slate-300">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <div class="space-y-6 pt-2 text-sm">
+                        <div class="flex items-center space-x-4 text-[#3d3225] dark:text-[#e5eae5]">
+                            <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <div>
-                                <span class="text-xs text-slate-500 block">Email Address</span>
-                                <a href="mailto:haideraliiqbal04@gmail.com" class="font-medium hover:text-emerald-600 dark:hover:text-emerald-400">haideraliiqbal04@gmail.com</a>
+                                <span class="text-xs text-[#877353] block font-mono uppercase tracking-wider">Email Address</span>
+                                <a href="mailto:haideraliiqbal04@gmail.com" class="font-medium hover:text-sage-600 dark:hover:text-editorial-300 transition">haideraliiqbal04@gmail.com</a>
                             </div>
                         </div>
 
-                        <div class="flex items-center space-x-3 text-slate-700 dark:text-slate-300">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div class="flex items-center space-x-4 text-[#3d3225] dark:text-[#e5eae5]">
+                            <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
                             </div>
                             <div>
-                                <span class="text-xs text-slate-500 block">Location</span>
+                                <span class="text-xs text-[#877353] block font-mono uppercase tracking-wider">Location</span>
                                 <span class="font-medium">United Kingdom</span>
                             </div>
                         </div>
 
-                        <div class="flex items-center space-x-3 text-slate-700 dark:text-slate-300">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                        <div class="flex items-center space-x-4 text-[#3d3225] dark:text-[#e5eae5]">
+                            <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                             </div>
                             <div>
-                                <span class="text-xs text-slate-500 block">LinkedIn Profile</span>
-                                <a href="https://www.linkedin.com/in/haider-ali-iqbal-37b0062b5" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-emerald-600 dark:hover:text-emerald-400">linkedin.com/in/haider-ali-iqbal-37b0062b5</a>
+                                <span class="text-xs text-[#877353] block font-mono uppercase tracking-wider">LinkedIn Profile</span>
+                                <a href="https://www.linkedin.com/in/haider-ali-iqbal-37b0062b5" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-sage-600 dark:hover:text-editorial-300 transition">linkedin.com/in/haider-ali-iqbal-37b0062b5</a>
                             </div>
                         </div>
 
-                        <div class="flex items-center space-x-3 text-slate-700 dark:text-slate-300">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                        <div class="flex items-center space-x-4 text-[#3d3225] dark:text-[#e5eae5]">
+                            <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                             </div>
                             <div>
-                                <span class="text-xs text-slate-500 block">GitHub Profile</span>
-                                <a href="https://github.com/haiderali-iqbal" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-emerald-600 dark:hover:text-emerald-400">github.com/haiderali-iqbal</a>
+                                <span class="text-xs text-[#877353] block font-mono uppercase tracking-wider">GitHub Profile</span>
+                                <a href="https://github.com/haiderali-iqbal" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-sage-600 dark:hover:text-editorial-300 transition">github.com/haiderali-iqbal</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="lg:col-span-7">
-                    <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 lg:p-10 shadow-xl space-y-6">
-                        <h3 class="text-xl font-bold">Download Academic CV & Inquiry</h3>
-                        
-                        <a href="#" onclick="alert('CV PDF download link will be connected to your hosted file.'); return false;" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md transition flex items-center justify-center space-x-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                            <span>Download Academic CV (PDF)</span>
-                        </a>
+                    <div class="rounded-3xl glass-panel p-8 lg:p-12 shadow-xl space-y-6">
+                        <h3 class="text-2xl font-serif font-bold">Direct Inquiry</h3>
 
-                        <div class="relative flex py-2 items-center">
-                            <div class="flex-grow border-t border-slate-200 dark:border-slate-800"></div>
-                            <span class="flex-shrink mx-4 text-xs uppercase tracking-widest text-slate-400 font-semibold">Or Send a Message</span>
-                            <div class="flex-grow border-t border-slate-200 dark:border-slate-800"></div>
-                        </div>
-
-                        <form onsubmit="event.preventDefault(); alert('Message feature ready! You can connect this to Formspree or EmailJS.');" class="space-y-4">
+                        <form onsubmit="event.preventDefault(); alert('Message feature ready! You can connect this to Formspree or EmailJS.');" class="space-y-5">
                             <div>
-                                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1 uppercase tracking-wider">Your Name</label>
-                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:outline-none text-sm" placeholder="Dr. Jane Smith">
+                                <label class="block text-xs font-semibold text-[#6c5a41] dark:text-[#bfae93] mb-2 uppercase tracking-wider font-mono">Your Name</label>
+                                <input type="text" required class="w-full px-5 py-3.5 rounded-2xl bg-[#fcfbf9] dark:bg-[#1f1a1d] border border-[#d9cfbc] dark:border-[#3d3225] focus:border-sage-600 dark:focus:border-editorial-400 focus:outline-none text-sm transition" placeholder="Dr. Jane Smith">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1 uppercase tracking-wider">Your Email</label>
-                                <input type="email" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:outline-none text-sm" placeholder="jane@university.ac.uk">
+                                <label class="block text-xs font-semibold text-[#6c5a41] dark:text-[#bfae93] mb-2 uppercase tracking-wider font-mono">Your Email</label>
+                                <input type="email" required class="w-full px-5 py-3.5 rounded-2xl bg-[#fcfbf9] dark:bg-[#1f1a1d] border border-[#d9cfbc] dark:border-[#3d3225] focus:border-sage-600 dark:focus:border-editorial-400 focus:outline-none text-sm transition" placeholder="jane@university.ac.uk">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1 uppercase tracking-wider">Message</label>
-                                <textarea rows="3" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:outline-none text-sm resize-none" placeholder="Inquiry regarding your bioinformatics research..."></textarea>
+                                <label class="block text-xs font-semibold text-[#6c5a41] dark:text-[#bfae93] mb-2 uppercase tracking-wider font-mono">Message</label>
+                                <textarea rows="4" required class="w-full px-5 py-3.5 rounded-2xl bg-[#fcfbf9] dark:bg-[#1f1a1d] border border-[#d9cfbc] dark:border-[#3d3225] focus:border-sage-600 dark:focus:border-editorial-400 focus:outline-none text-sm resize-none transition" placeholder="Inquiry regarding your bioinformatics research..."></textarea>
                             </div>
-                            <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-slate-800 dark:bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition">
+                            <button type="submit" class="w-full py-4 px-6 rounded-full bg-sage-600 hover:bg-sage-700 dark:bg-editorial-500 dark:hover:bg-editorial-600 text-white font-medium text-sm tracking-wider uppercase transition shadow-md">
                                 Send Message
                             </button>
                         </form>
@@ -533,42 +553,42 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-[#0f1423] border-t border-slate-200 dark:border-slate-800 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
+    <footer class="bg-[#f4f2ec] dark:bg-[#191512] border-t border-[#d9cfbc]/40 dark:border-[#3d3225]/60 py-10">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row justify-between items-center text-xs text-[#877353]">
             <p>© 2026 Haider Ali Iqbal. Built with HTML5, Tailwind CSS, and R workflow reproducibility.</p>
-            <p class="mt-2 sm:mt-0">British English Standard Compliance</p>
+            <p class="mt-2 sm:mt-0 font-mono tracking-wider">BRITISH ENGLISH STANDARD COMPLIANCE</p>
         </div>
     </footer>
 
     <!-- Deep-Dive Modal -->
-    <div id="researchModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
-        <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 max-w-2xl w-full p-8 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-6 right-6 p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white transition">
+    <div id="researchModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md hidden">
+        <div class="rounded-3xl glass-panel max-w-2xl w-full p-8 lg:p-10 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto border border-[#d9cfbc] dark:border-[#3d3225]">
+            <button onclick="closeModal()" class="absolute top-6 right-6 p-2.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#bfae93] hover:text-[#261f18] dark:hover:text-white transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
             <div>
-                <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest">First-Class Project Deep Dive</span>
-                <h3 class="text-2xl font-extrabold mt-1">Statistical Pipeline & Physiological Synthesis</h3>
+                <span class="text-xs font-bold text-sage-600 dark:text-editorial-400 uppercase tracking-widest font-mono">First-Class Project Deep Dive</span>
+                <h3 class="text-3xl font-serif font-bold mt-1">Statistical Pipeline & Physiological Synthesis</h3>
             </div>
 
-            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
-                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 space-y-2">
-                    <h4 class="font-bold text-slate-900 dark:text-white">1. Data Ingestion & Quality Control</h4>
-                    <p>Ingested raw global race results comprising 7.4 million finishing records. Implemented rigorous data sanitisation protocols in R to remove outliers, validate demographic attributes, and align performance timestamps with external NHANES population health baselines.</p>
+            <div class="space-y-4 text-sm text-[#544533] dark:text-[#bfae93]">
+                <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
+                    <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">1. Data Ingestion & Quality Control</h4>
+                    <p class="font-light leading-relaxed">Ingested raw global race results comprising 7.4 million finishing records. Implemented rigorous data sanitisation protocols in R to remove outliers, validate demographic attributes, and align performance timestamps with external NHANES population health baselines.</p>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 space-y-2">
-                    <h4 class="font-bold text-slate-900 dark:text-white">2. Principal Component Analysis & Hypothesis Testing</h4>
-                    <p>Utilised <code class="text-emerald-600 dark:text-emerald-400">rstatix</code> and base stats to execute Welch's t-tests and PCA. Demonstrated distinct variance clustering across ultra-endurance distance brackets and biological sex cohorts.</p>
+                <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
+                    <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">2. Principal Component Analysis & Hypothesis Testing</h4>
+                    <p class="font-light leading-relaxed">Utilised <code class="text-sage-700 dark:text-editorial-300 font-mono">rstatix</code> and base stats to execute Welch's t-tests and PCA. Demonstrated distinct variance clustering across ultra-endurance distance brackets and biological sex cohorts.</p>
                 </div>
-                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 space-y-2">
-                    <h4 class="font-bold text-slate-900 dark:text-white">3. Biochemical Interpretation</h4>
-                    <p>Synthesised computational outputs with peer-reviewed physiological literature—evaluating how CPT1-mediated fatty-acid transport capacity, glycogen sparing efficiencies, and slow-twitch muscle fibre composition modulate fatigue kinetics during multi-hour exertion.</p>
+                <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
+                    <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">3. Biochemical Interpretation</h4>
+                    <p class="font-light leading-relaxed">Synthesised computational outputs with peer-reviewed physiological literature—evaluating how CPT1-mediated fatty-acid transport capacity, glycogen sparing efficiencies, and slow-twitch muscle fibre composition modulate fatigue kinetics during multi-hour exertion.</p>
                 </div>
             </div>
 
-            <div class="flex justify-end pt-4 border-t border-slate-200 dark:border-slate-800">
-                <button onclick="closeModal()" class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition">
+            <div class="flex justify-end pt-4 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]">
+                <button onclick="closeModal()" class="px-8 py-3 rounded-full bg-sage-600 hover:bg-sage-700 dark:bg-editorial-500 dark:hover:bg-editorial-600 text-white font-medium text-sm tracking-wider uppercase transition">
                     Close Window
                 </button>
             </div>
@@ -584,13 +604,13 @@
             const labContent = document.getElementById('tab-laboratory');
 
             if (tab === 'bioinformatics') {
-                bioBtn.className = "px-5 py-2.5 rounded-lg text-sm font-semibold transition bg-emerald-600 text-white shadow";
-                labBtn.className = "px-5 py-2.5 rounded-lg text-sm font-semibold transition text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white";
+                bioBtn.className = "px-6 py-3 rounded-full text-sm font-medium tracking-wide transition duration-300 bg-sage-600 dark:bg-editorial-500 text-white shadow-sm";
+                labBtn.className = "px-6 py-3 rounded-full text-sm font-medium tracking-wide transition duration-300 text-[#6c5a41] dark:text-[#bfae93] hover:text-[#261f18] dark:hover:text-white";
                 bioContent.classList.remove('hidden');
                 labContent.classList.add('hidden');
             } else {
-                labBtn.className = "px-5 py-2.5 rounded-lg text-sm font-semibold transition bg-emerald-600 text-white shadow";
-                bioBtn.className = "px-5 py-2.5 rounded-lg text-sm font-semibold transition text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white";
+                labBtn.className = "px-6 py-3 rounded-full text-sm font-medium tracking-wide transition duration-300 bg-sage-600 dark:bg-editorial-500 text-white shadow-sm";
+                bioBtn.className = "px-6 py-3 rounded-full text-sm font-medium tracking-wide transition duration-300 text-[#6c5a41] dark:text-[#bfae93] hover:text-[#261f18] dark:hover:text-white";
                 labContent.classList.remove('hidden');
                 bioContent.classList.add('hidden');
             }
