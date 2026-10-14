@@ -8,8 +8,8 @@ Welcome to my personal academic and professional portfolio repository! This site
 
 ## 🎓 About Me
 
-- **Degree:** BSc (Hons) Biomedical Science (2:1, First-Class Dissertation Mark)
-- **Current Trajectory:** MSc Biomedical and Analytical Science
+- **Undergraduate Degree:** BSc (Hons) Biomedical Science (2:1, First-Class Dissertation Mark)
+- **Current Academic Pursuits:** MSc Biomedical and Analytical Science
 - **Focus Areas:** Big Data pipeline engineering in R, metabolic physiology, cancer biology wet-lab workflows, and advanced analytical instrumentation (HPLC, MS, qPCR).
 
 ---
@@ -27,9 +27,9 @@ Welcome to my personal academic and professional portfolio repository! This site
 
 ## 🛠️ Tech Stack & Tools
 
-- **Data Science & Bioinformatics:** R, RStudio, Tidyverse, ggplot2, rstatix, PCA, Data Cleaning Pipeline
-- **Web Development:** HTML5, Tailwind CSS, JavaScript
-- **Laboratory Skills:** IHC, H&E Staining, Cell Culture, SDS-PAGE, Blood Film Analysis, Serial Dilutions
+- **Data Science & Bioinformatics:** Visual Basic, R, RStudio, Tidyverse, ggplot2, rstatix, PCA, Data Cleaning Pipeline
+- **Web Development:** Developing competencies in HTML5, CSS, and JavaScript 
+- **Laboratory Skills:** IHC, H&E Staining, Cell Culture, SDS-PAGE, Blood Film Analysis, Serial Dilutions, Dissection
 
 ---
 
