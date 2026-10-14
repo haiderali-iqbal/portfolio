@@ -125,7 +125,7 @@
                     </h1>
                     
                     <p class="text-lg sm:text-xl text-[#544533] dark:text-[#bfae93] max-w-2xl font-light leading-relaxed">
-                        Biomedical Science graduate and bioinformatician specialising in massive-scale data processing in R, metabolic physiology, cancer biology wet-lab workflows, and advanced analytical instrumentation.
+                        Biomedical Science graduate and bioinformatician specialising in big data processing in R, metabolic physiology, cancer biology wet-lab workflows, and advanced analytical instrumentation[cite: 24, 31].
                     </p>
 
                     <div class="flex flex-wrap gap-4 pt-4">
@@ -141,7 +141,7 @@
                     <div class="grid grid-cols-3 gap-8 pt-12 border-t border-[#d9cfbc]/60 dark:border-[#3d3225]">
                         <div>
                             <div class="text-3xl font-serif font-bold text-sage-600 dark:text-editorial-400">7.4M+</div>
-                            <div class="text-xs text-[#6c5a41] dark:text-[#a38f70] tracking-wider uppercase font-medium mt-1">Data Points Analysed</div>
+                            <div class="text-xs text-[#6c5a41] dark:text-[#a38f70] tracking-wider uppercase font-medium mt-1">Big Data Points Analysed[cite: 24]</div>
                         </div>
                         <div>
                             <div class="text-3xl font-serif font-bold text-sage-600 dark:text-editorial-400">First-Class</div>
@@ -149,12 +149,12 @@
                         </div>
                         <div>
                             <div class="text-3xl font-serif font-bold text-sage-600 dark:text-editorial-400">R / Tidyverse</div>
-                            <div class="text-xs text-[#6c5a41] dark:text-[#a38f70] tracking-wider uppercase font-medium mt-1">Computational Pipeline</div>
+                            <div class="text-xs text-[#6c5a41] dark:text-[#a38f70] tracking-wider uppercase font-medium mt-1">Bioinformatics Pipeline[cite: 31]</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Editorial Code Card -->
+                <!-- Editorial Code Card with Actual R Code -->
                 <div class="lg:col-span-5">
                     <div class="rounded-3xl glass-panel p-2 shadow-2xl relative overflow-hidden">
                         <div class="rounded-2xl bg-[#1f1a1d] dark:bg-[#0b0f19] border border-[#3d3225] overflow-hidden">
@@ -165,22 +165,22 @@
                                     <div class="w-3 h-3 rounded-full bg-[#16a34a]"></div>
                                 </div>
                                 <span class="text-xs font-mono text-[#a38f70]">pipeline.R</span>
-                                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-[#3d3225] text-[#d9cfbc] font-mono tracking-wider">Active Research</span>
+                                <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-[#3d3225] text-[#d9cfbc] font-mono tracking-wider">Big Data Processing</span>
                             </div>
-                            <div class="p-6 font-mono text-xs sm:text-sm text-[#e5eae5] space-y-3">
-                                <p class="text-[#877353]"># Load Bioinformatics Libraries</p>
-                                <p><span class="text-[#f472b6]">library</span>(tidyverse)</p>
-                                <p><span class="text-[#f472b6]">library</span>(rstatix)</p>
-                                <p><span class="text-[#f472b6]">library</span>(ggplot2)</p>
-                                <p class="text-[#877353] pt-2"># Pipeline Execution: Ultramarathon Scaling</p>
-                                <p>df_clean &lt;- raw_data <span class="text-[#34d399]">%&gt;%</span></p>
-                                <p class="pl-4"><span class="text-[#60a5fa]">filter</span>(complete.cases(.)) <span class="text-[#34d399]">%&gt;%</span></p>
-                                <p class="pl-4"><span class="text-[#60a5fa]">mutate</span>(z_score = <span class="text-[#60a5fa]">scale</span>(metric))</p>
-                                <p class="text-[#34d399] pt-2"># Output: PCA & Welch's t-tests validated</p>
+                            <div class="p-6 font-mono text-xs sm:text-sm text-[#e5eae5] space-y-2">
+                                <p class="text-[#877353]"># Load Big Data & Clean Names[cite: 57]</p>
+                                <p>data &lt;- <span class="text-[#f472b6]">read_csv</span>(<span class="text-[#60a5fa]">here</span>(<span class="text-[#34d399]">"data"</span>, <span class="text-[#34d399]">"TWO_CENTURIES_OF_UM_RACES.csv"</span>))</p>
+                                <p>data &lt;- data |&gt; <span class="text-[#60a5fa]">clean_names</span>()</p>
+                                <p class="text-[#877353] pt-1"># Filter 2013-2022 & &ge; 200 km subset[cite: 57]</p>
+                                <p>data_filtered &lt;- data |&gt;</p>
+                                <p class="pl-4"><span class="text-[#60a5fa]">filter</span>(year_of_event %in% <span class="text-[#d97706]">2013:2022</span>,</p>
+                                <p class="pl-8">distance_when_units_km &gt;= <span class="text-[#d97706]">200</span>,</p>
+                                <p class="pl-8">!is.na(athlete_average_speed))</p>
+                                <p class="text-[#34d399] pt-1"># Output: 7.4M records processed in R</p>
                             </div>
                             <div class="px-5 py-3 border-t border-[#3d3225] bg-[#171310] dark:bg-[#06090e] flex justify-between items-center text-xs text-[#a38f70]">
                                 <span>Reproducible Science</span>
-                                <span class="text-editorial-300 font-medium font-mono">RStudio v4.3</span>
+                                <span class="text-editorial-300 font-medium font-mono">RStudio v4.3.1[cite: 32]</span>
                             </div>
                         </div>
                     </div>
@@ -196,7 +196,7 @@
                 <span class="text-sage-600 dark:text-editorial-400 text-xs font-bold uppercase tracking-widest">Background & Competencies</span>
                 <h2 class="text-4xl sm:text-5xl font-serif font-normal">About Me & Technical Expertise</h2>
                 <p class="text-[#6c5a41] dark:text-[#bfae93] text-base sm:text-lg font-light leading-relaxed">
-                    Combining wet-lab biomedical fundamentals with scalable computational pipelines to interrogate complex biological datasets, metabolic pathways, and endurance kinetics.
+                    Combining wet-lab biomedical fundamentals with scalable big data computational pipelines to interrogate complex biological datasets, metabolic pathways, and endurance kinetics[cite: 24, 31].
                 </p>
             </div>
 
@@ -224,10 +224,10 @@
 
                 <div class="lg:col-span-8 rounded-3xl glass-panel p-8 sm:p-12 space-y-6 shadow-sm flex flex-col justify-center">
                     <p class="text-lg text-[#3d3225] dark:text-[#e5eae5] font-light leading-relaxed">
-                        I am a Biomedical Science graduate (<strong class="font-semibold text-[#261f18] dark:text-white">BSc(Hons) 2:1 with a First-Class project mark</strong>) specialising in bioinformatics, computational biology, and biochemical/metabolic physiology. My academic work bridges massive dataset processing with deep human physiology—leveraging <strong class="font-semibold text-[#261f18] dark:text-white">R</strong> to uncover biological patterns and performance limits.
+                        I am a Biomedical Science graduate (<strong class="font-semibold text-[#261f18] dark:text-white">BSc(Hons) 2:1 with a First-Class project mark</strong>) specialising in big data bioinformatics, computational biology, and biochemical physiology. My academic work bridges massive epidemiological datasets with deep human physiology—leveraging <strong class="font-semibold text-[#261f18] dark:text-white">R</strong> to uncover biological patterns and performance limits[cite: 24, 31].
                     </p>
                     <p class="text-lg text-[#3d3225] dark:text-[#e5eae5] font-light leading-relaxed">
-                        Currently advancing my expertise through an <strong class="font-semibold text-[#261f18] dark:text-white">MSc in Biomedical and Analytical Science</strong>, my focus centres on applying rigorous analytical techniques, chromatography, mass spectrometry, and bioinformatic pipelines to solve complex biomedical questions.
+                        Currently advancing my expertise through an <strong class="font-semibold text-[#261f18] dark:text-white">MSc in Biomedical and Analytical Science</strong>, my focus centres on applying rigorous analytical techniques, chromatography, mass spectrometry, and big data bioinformatic pipelines to solve complex biomedical questions.
                     </p>
                 </div>
             </div>
@@ -247,7 +247,7 @@
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                     </div>
                     <h4 class="text-xl font-serif font-bold">Languages & Environments</h4>
-                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Proficient in R and RStudio for statistical programming, reproducible reporting, and pipeline automation.</p>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Proficient in R and RStudio for statistical programming, big data pipeline automation, and reproducible reporting[cite: 31, 32].</p>
                     <div class="flex flex-wrap gap-2 pt-2">
                         <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">R & RStudio</span>
                         <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Markdown</span>
@@ -259,8 +259,8 @@
                     <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
                     </div>
-                    <h4 class="text-xl font-serif font-bold">Data Wrangling & Tidyverse</h4>
-                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Skilled in cleaning, standardising, and merging massive datasets (millions of rows) with high efficiency.</p>
+                    <h4 class="text-xl font-serif font-bold">Big Data Wrangling</h4>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Skilled in cleaning, standardising, and merging massive datasets (millions of rows) with high efficiency[cite: 31].</p>
                     <div class="flex flex-wrap gap-2 pt-2">
                         <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">tidyverse</span>
                         <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">dplyr</span>
@@ -273,7 +273,7 @@
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
                     </div>
                     <h4 class="text-xl font-serif font-bold">Statistics & Visualisation</h4>
-                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Applying PCA, Welch's t-tests, and advanced statistical modeling with publication-ready ggplot2 visualisations.</p>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Applying PCA, Welch's t-tests, and advanced statistical modeling with publication-ready ggplot2 visualisations[cite: 32, 33].</p>
                     <div class="flex flex-wrap gap-2 pt-2">
                         <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">ggplot2</span>
                         <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">rstatix</span>
@@ -344,7 +344,7 @@
                 <span class="text-sage-600 dark:text-editorial-400 text-xs font-bold uppercase tracking-widest">Research Spotlight</span>
                 <h2 class="text-4xl sm:text-5xl font-serif font-normal">Undergraduate Project Showcase</h2>
                 <p class="text-[#6c5a41] dark:text-[#bfae93] text-base sm:text-lg font-light leading-relaxed">
-                    A rigorous bioinformatic investigation combining massive performance datasets with deep physiological and metabolic analysis.
+                    A rigorous big data bioinformatic investigation combining massive performance metadata with deep physiological and metabolic analysis[cite: 24, 31].
                 </p>
             </div>
 
@@ -352,40 +352,40 @@
                 <div class="flex flex-wrap gap-3">
                     <span class="px-4 py-1.5 rounded-full bg-sage-600 text-white dark:bg-editorial-500 text-xs font-bold tracking-wider">FIRST-CLASS PROJECT MARK</span>
                     <span class="px-4 py-1.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#d9cfbc] text-xs font-medium">BSc(Hons) Biomedical Science</span>
-                    <span class="px-4 py-1.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#d9cfbc] text-xs font-medium">Supervisor: Dr. Richard Bingham</span>
+                    <span class="px-4 py-1.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#d9cfbc] text-xs font-medium">Supervisor: Dr. Richard Bingham[cite: 23]</span>
                 </div>
 
                 <h3 class="text-3xl sm:text-4xl font-serif font-normal tracking-tight leading-snug">
-                    Biological Sex Differences and the Limits of Human Endurance: A Bioinformatics Approach to Ultramarathon Data
+                    Biological Sex Differences and the Limits of Human Endurance: A Bioinformatics Approach to Ultramarathon Data[cite: 22]
                 </h3>
 
                 <div class="space-y-4">
                     <h4 class="text-xs font-bold uppercase tracking-widest text-sage-600 dark:text-editorial-400 font-mono">Abstract & Overview</h4>
                     <p class="text-[#3d3225] dark:text-[#e5eae5] leading-relaxed text-base sm:text-lg font-light">
-                        This research investigated the physiological and statistical limits of human endurance through a sex-comparative lens. By building a scalable data-processing pipeline in <strong class="font-semibold text-[#261f18] dark:text-white">R</strong>, a global dataset of <strong class="font-semibold text-[#261f18] dark:text-white">7.4 million ultramarathon finishing times</strong> was cleaned, standardised, and integrated with population health benchmarks from the NHANES database. The study evaluated how sex-specific differences in substrate utilisation, fat oxidation rates, CPT1-mediated fatty-acid transport, and glycogen sparing influence fatigue kinetics during prolonged exertion, synthesizing computational findings with physiological literature surrounding muscle fibre composition, thermoregulation, and the Central Governor Theory.
+                        This research investigated the physiological and statistical limits of human endurance through a sex-comparative lens. By applying <strong class="font-semibold text-[#261f18] dark:text-white">big data bioinformatics</strong> workflows in <strong class="font-semibold text-[#261f18] dark:text-white">R</strong>, a global dataset of <strong class="font-semibold text-[#261f18] dark:text-white">7.4 million ultramarathon finishing times</strong> was cleaned, standardised, and integrated with population health benchmarks from the NHANES database[cite: 24]. The study evaluated how sex-specific differences in substrate utilisation, fat oxidation rates, CPT1-mediated fatty-acid transport, and glycogen sparing influence fatigue kinetics during prolonged exertion[cite: 24, 30].
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]">
                     <div class="space-y-3">
                         <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">1</div>
-                        <h5 class="font-serif font-bold text-lg">Data Processing & Engineering</h5>
-                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Built a scalable data-processing pipeline in <strong class="font-medium text-[#261f18] dark:text-white">R and RStudio</strong> using tidyverse and dplyr to clean, standardise, and merge massive-scale performance metrics (7.4M records) with external population health datasets (NHANES).</p>
+                        <h5 class="font-serif font-bold text-lg">Big Data Engineering</h5>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Built a scalable big data processing pipeline in <strong class="font-medium text-[#261f18] dark:text-white">R and RStudio</strong> using tidyverse and dplyr to clean, standardise, and merge massive-scale performance metrics (7.4M records) with external population health datasets (NHANES)[cite: 31, 32].</p>
                     </div>
                     <div class="space-y-3">
                         <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">2</div>
                         <h5 class="font-serif font-bold text-lg">Statistical Analysis</h5>
-                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Applied <strong class="font-medium text-[#261f18] dark:text-white">Principal Component Analysis (PCA), Welch's t-tests</strong>, and advanced statistical models using rstatix to evaluate multi-variable performance trends and systemic lipid profiles.</p>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Applied <strong class="font-medium text-[#261f18] dark:text-white">Principal Component Analysis (PCA), Welch's t-tests</strong>, and advanced statistical models using rstatix to evaluate multi-variable performance trends and systemic lipid profiles[cite: 33].</p>
                     </div>
                     <div class="space-y-3">
                         <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">3</div>
                         <h5 class="font-serif font-bold text-lg">Data Visualisation</h5>
-                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Generated clean, publication-ready visualisations and exploratory data plots using <strong class="font-medium text-[#261f18] dark:text-white">ggplot2</strong> to clearly illustrate performance gaps across expansion distances and durations.</p>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Generated clean, publication-ready visualisations and exploratory data plots using <strong class="font-medium text-[#261f18] dark:text-white">ggplot2</strong> to clearly illustrate performance gaps across expansion distances and durations[cite: 33].</p>
                     </div>
                     <div class="space-y-3">
                         <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">4</div>
                         <h5 class="font-serif font-bold text-lg">Physiological Synthesis</h5>
-                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Interrogated computational outputs through a metabolic lens—examining lipid oxidation, CPT1 kinetics, neuromuscular fatigue resistance, and the Central Governor Theory.</p>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Interrogated computational big data outputs through a metabolic lens—examining lipid oxidation, CPT1 kinetics, neuromuscular fatigue resistance, and the Central Governor Theory[cite: 24, 30].</p>
                     </div>
                 </div>
 
@@ -406,7 +406,7 @@
                 <span class="text-sage-600 dark:text-editorial-400 text-xs font-bold uppercase tracking-widest">Postgraduate Academic Trajectory</span>
                 <h2 class="text-4xl sm:text-5xl font-serif font-normal">MSc Biomedical and Analytical Science</h2>
                 <p class="text-[#6c5a41] dark:text-[#bfae93] text-base sm:text-lg font-light leading-relaxed">
-                    Expanding computational and physiological foundations into advanced analytical instrumentation, precision diagnostics, and quantitative method validation.
+                    Expanding big data computational and physiological foundations into advanced analytical instrumentation, precision diagnostics, and quantitative method validation.
                 </p>
             </div>
 
@@ -460,7 +460,7 @@
                         </div>
                         <h3 class="text-2xl font-serif font-bold">Upcoming Research Projects</h3>
                         <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">
-                            Developing laboratory research modules, analytical method validation reports, and dissertation planning centred around bioinformatic biomarker discovery.
+                            Developing laboratory research modules, analytical method validation reports, and dissertation planning centred around big data biomarker discovery.
                         </p>
                     </div>
                     <div class="pt-6 border-t border-[#d9cfbc]/40 dark:border-[#3d3225] text-xs font-bold text-sage-700 dark:text-editorial-400 tracking-wider font-mono">
@@ -479,7 +479,7 @@
                     <span class="text-sage-600 dark:text-editorial-400 text-xs font-bold uppercase tracking-widest">Get In Touch</span>
                     <h2 class="text-4xl sm:text-5xl font-serif font-normal">Let's Connect & Collaborate</h2>
                     <p class="text-[#6c5a41] dark:text-[#bfae93] text-base sm:text-lg font-light leading-relaxed">
-                        Whether you're interested in my bioinformatic pipeline research, upcoming MSc projects, or potential graduate opportunities in biomedical and analytical science, I would love to hear from you.
+                        Whether you're interested in my big data pipeline research, upcoming MSc projects, or potential graduate opportunities in biomedical and analytical science, I would love to hear from you.
                     </p>
 
                     <div class="space-y-6 pt-2 text-sm">
@@ -569,21 +569,21 @@
 
             <div>
                 <span class="text-xs font-bold text-sage-600 dark:text-editorial-400 uppercase tracking-widest font-mono">First-Class Project Deep Dive</span>
-                <h3 class="text-3xl font-serif font-bold mt-1">Statistical Pipeline & Physiological Synthesis</h3>
+                <h3 class="text-3xl font-serif font-bold mt-1">Big Data Statistical Pipeline & Physiological Synthesis</h3>
             </div>
 
             <div class="space-y-4 text-sm text-[#544533] dark:text-[#bfae93]">
                 <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
-                    <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">1. Data Ingestion & Quality Control</h4>
-                    <p class="font-light leading-relaxed">Ingested raw global race results comprising 7.4 million finishing records. Implemented rigorous data sanitisation protocols in R to remove outliers, validate demographic attributes, and align performance timestamps with external NHANES population health baselines.</p>
+                    <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">1. Big Data Ingestion & Quality Control</h4>
+                    <p class="font-light leading-relaxed">Ingested raw global race results comprising 7.4 million finishing records. Implemented rigorous data sanitisation protocols in R to remove outliers, validate demographic attributes, and align performance timestamps with external NHANES population health baselines[cite: 24, 32].</p>
                 </div>
                 <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
                     <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">2. Principal Component Analysis & Hypothesis Testing</h4>
-                    <p class="font-light leading-relaxed">Utilised <code class="text-sage-700 dark:text-editorial-300 font-mono">rstatix</code> and base stats to execute Welch's t-tests and PCA. Demonstrated distinct variance clustering across ultra-endurance distance brackets and biological sex cohorts.</p>
+                    <p class="font-light leading-relaxed">Utilised <code class="text-sage-700 dark:text-editorial-300 font-mono">rstatix</code> and base stats to execute Welch's t-tests and PCA. Demonstrated distinct variance clustering across ultra-endurance distance brackets and biological sex cohorts[cite: 33].</p>
                 </div>
                 <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
                     <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">3. Biochemical Interpretation</h4>
-                    <p class="font-light leading-relaxed">Synthesised computational outputs with peer-reviewed physiological literature—evaluating how CPT1-mediated fatty-acid transport capacity, glycogen sparing efficiencies, and slow-twitch muscle fibre composition modulate fatigue kinetics during multi-hour exertion.</p>
+                    <p class="font-light leading-relaxed">Synthesised big data computational outputs with peer-reviewed physiological literature—evaluating how CPT1-mediated fatty-acid transport capacity, glycogen sparing efficiencies, and slow-twitch muscle fibre composition modulate fatigue kinetics during multi-hour exertion[cite: 30, 37].</p>
                 </div>
             </div>
 
