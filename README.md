@@ -27,6 +27,6 @@ This project aimed to enhance our understanding of the performance difference be
 ## Repository Structure
 ```text
 portfolio/
-├── index.html              # Main portfolio web page (HTML5 / Tailwind CSS)
-├── Figure_2_PCA.png        # Principal Component Analysis visualisation graphic
-└── README.md               # Project documentation and reproducibility guide
+├── Figure_2_PCA.png        # Principal Component Analysis visualisation graphic.
+├── README.md               # Project documentation and reproducibility guide.
+└── index.html              # Main portfolio web page (HTML5 / Tailwind CSS).
