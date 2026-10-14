@@ -27,9 +27,9 @@ Welcome to my personal academic and professional portfolio repository! This site
 
 ## 🛠️ Tech Stack & Tools
 
-- **Data Science & Bioinformatics:** Visual Basic, R, RStudio, Tidyverse, ggplot2, rstatix, PCA, Data Cleaning Pipeline
-- **Web Development:** Developing competencies in HTML5, CSS, and JavaScript 
-- **Laboratory Skills:** IHC, H&E Staining, Cell Culture, SDS-PAGE, Blood Film Analysis, Serial Dilutions, Dissection
+- **Data Science & Bioinformatics:** Visual Basic, R, RStudio, Tidyverse, ggplot2, rstatix, PCA, Data Cleaning Pipeline.
+- **Web Development:** Developing competencies in HTML5, CSS, and JavaScript. 
+- **Laboratory Skills:** IHC, H&E Staining, Cell Culture, SDS-PAGE, Blood Film Analysis, Serial Dilutions, Dissection.
 
 ---
 
