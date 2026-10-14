@@ -263,12 +263,12 @@
                     <div class="w-12 h-12 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
                     </div>
-                    <h4 class="text-xl font-serif font-bold">Data Wrangling</h4>
-                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Skilled in cleaning, transforming, and filtering large tabular datasets efficiently using tidyverse packages.</p>
+                    <h4 class="text-xl font-serif font-bold">Data Wrangling & Database Mining</h4>
+                    <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Skilled in cleaning, transforming, and filtering massive tabular datasets exceeding 7 million rows efficiently.</p>
                     <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Database Mining</span>
                         <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">tidyverse</span>
                         <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">dplyr</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc]">Data Cleaning</span>
                     </div>
                 </div>
 
@@ -357,6 +357,7 @@
                         <span class="px-4 py-1.5 rounded-full bg-sage-600 text-white dark:bg-editorial-500 text-xs font-bold tracking-wider">FIRST-CLASS PROJECT MARK</span>
                         <span class="px-4 py-1.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#d9cfbc] text-xs font-medium">BSc (Hons) Biomedical Science</span>
                         <span class="px-4 py-1.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#d9cfbc] text-xs font-medium">Supervisor: Dr. Richard Bingham</span>
+                        <span class="px-4 py-1.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#d9cfbc] text-xs font-medium">Techniques: Bioinformatics, R, Database Mining</span>
                     </div>
                     <a href="https://github.com/haiderali-iqbal/portfolio" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-sage-700 dark:text-editorial-300 hover:underline flex items-center space-x-1">
                         <span>View Source Code & README</span>
@@ -369,9 +370,9 @@
                 </h3>
 
                 <div class="space-y-4">
-                    <h4 class="text-xs font-bold uppercase tracking-widest text-sage-600 dark:text-editorial-400 font-mono">01 — Abstract & Research Question</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-sage-600 dark:text-editorial-400 font-mono">01 — Abstract & Project Outline</h4>
                     <p class="text-[#3d3225] dark:text-[#e5eae5] leading-relaxed text-base sm:text-lg font-light">
-                        <strong class="font-medium text-[#261f18] dark:text-white">Research Question:</strong> What patterns in ultramarathon performance emerge across sex, age, race distance, and time? This investigation analysed global ultramarathon finishing times to evaluate sex-comparative performance trends while separating empirical data patterns from physiological hypotheses.
+                        This project aimed to enhance our understanding of the performance difference between the sexes when approaching the limits of human endurance. Utilising a publicly available dataset of individual finishing times of ultramarathon runners (<strong class="font-semibold text-[#261f18] dark:text-white">exceeding 7 million rows</strong>, requiring <strong class="font-semibold text-[#261f18] dark:text-white">R/RStudio</strong> rather than Excel), the analysis extracted data on sex, age, distance, and finishing time through <strong class="font-semibold text-[#261f18] dark:text-white">database mining and bioinformatics</strong> workflows, with results discussed in the context of biochemical, hormonal, and physiological differences between males and females.
                     </p>
                 </div>
 
@@ -380,8 +381,8 @@
                     <h4 class="text-xs font-bold uppercase tracking-widest text-sage-600 dark:text-editorial-400 font-mono">02 — Data Sources & Methodology</h4>
                     <div class="grid md:grid-cols-2 gap-6 text-sm text-[#544533] dark:text-[#bfae93] font-light leading-relaxed">
                         <div class="space-y-2">
-                            <strong class="font-semibold text-[#261f18] dark:text-white block font-serif text-base">Ultramarathon Race Dataset</strong>
-                            <p>Derived from global race results (spanning 2013–2022). Records were filtered for events >= 200 km with complete athlete speed metrics. One record represents an individual finishing time entry. Missing values and outliers were systematically removed during R pipeline processing.</p>
+                            <strong class="font-semibold text-[#261f18] dark:text-white block font-serif text-base">Ultramarathon Race Dataset (7M+ Rows)</strong>
+                            <p>Global race results mined via R/RStudio (spanning 2013–2022). Records were filtered for events >= 200 km with complete athlete speed metrics. One record represents an individual finishing time entry. Missing values and outliers were systematically removed during R pipeline processing.</p>
                         </div>
                         <div class="space-y-2">
                             <strong class="font-semibold text-[#261f18] dark:text-white block font-serif text-base">NHANES Population Health Benchmarks</strong>
@@ -420,15 +421,15 @@
                 <div class="space-y-4">
                     <h4 class="text-xs font-bold uppercase tracking-widest text-sage-600 dark:text-editorial-400 font-mono">04 — Interpretation & Physiological Hypotheses</h4>
                     <p class="text-[#3d3225] dark:text-[#e5eae5] leading-relaxed text-base sm:text-lg font-light">
-                        While race data establishes empirical performance trends, physiological explanations involving substrate utilisation, CPT1-mediated fatty acid transport, glycogen sparing, or slow-twitch muscle fibre composition represent literature-informed hypotheses. Race-result metadata alone cannot establish these cellular mechanisms; empirical validation via direct biochemical assay or metabolic gas analysis would be required to test these explanations.
+                        While race data establishes empirical performance trends, physiological explanations involving biochemical, hormonal, and metabolic differences (such as fatty-acid transport, glycogen sparing, or muscle fibre composition) represent literature-informed hypotheses. Race-result metadata alone cannot establish these cellular mechanisms; empirical validation via direct biochemical assay or metabolic gas analysis would be required to test these explanations.
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]">
                     <div class="space-y-3">
                         <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">1</div>
-                        <h5 class="font-serif font-bold text-lg">Pipeline Engineering</h5>
-                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Built a reproducible R script workflow using tidyverse and dplyr to handle large-scale data filtering, cleaning, and transformation.</p>
+                        <h5 class="font-serif font-bold text-lg">Database Mining</h5>
+                        <p class="text-sm text-[#6c5a41] dark:text-[#bfae93] font-light leading-relaxed">Overcame Excel limitations by mining 7M+ rows using R and RStudio for scalable data filtering and transformation.</p>
                     </div>
                     <div class="space-y-3">
                         <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">2</div>
@@ -638,8 +639,8 @@
 
             <div class="space-y-4 text-sm text-[#544533] dark:text-[#bfae93]">
                 <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
-                    <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">1. Data Ingestion & Quality Control</h4>
-                    <p class="font-light leading-relaxed">Ingested global race results comprising 7.4 million finishing records. Implemented rigorous data sanitisation protocols in R to remove missing values, validate attributes, and structure analysis scripts for reproducibility.</p>
+                    <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">1. Database Mining & Ingestion</h4>
+                    <p class="font-light leading-relaxed">Mined global race results exceeding 7 million rows using R/RStudio to bypass Excel limitations. Implemented rigorous data sanitisation protocols to filter variables and structure analysis scripts for reproducibility.</p>
                 </div>
                 <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
                     <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">2. Statistical Testing & PCA</h4>
@@ -647,7 +648,7 @@
                 </div>
                 <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
                     <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">3. Physiological Interpretation & Limitations</h4>
-                    <p class="font-light leading-relaxed">Evaluated computational outputs through a metabolic lens—discussing literature-informed hypotheses regarding fatty-acid transport and glycogen sparing while explicitly noting that race-result data alone cannot establish cellular mechanisms.</p>
+                    <p class="font-light leading-relaxed">Evaluated computational outputs through a metabolic lens—discussing literature-informed hypotheses regarding biochemical, hormonal, and physiological differences while explicitly noting that race-result data alone cannot establish cellular mechanisms.</p>
                 </div>
             </div>
 
