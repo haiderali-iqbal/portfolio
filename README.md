@@ -6,7 +6,7 @@ Repository accompanying the academic portfolio of Haider Ali Iqbal: **[https://h
 
 ## Flagship Research Project
 ### Biological Sex Differences and the Limits of Human Endurance: A Bioinformatics Approach to Ultramarathon Data
-* **Academic Context:** BSc (Hons) Biomedical Science Undergraduate Research Project (First-Class mark).
+* **Academic Context:** BSc(Hons) Biomedical Science Undergraduate Research Project (First-Class mark).
 * **Supervisor:** Dr. Richard Bingham.
 
 #### Research Question
