@@ -366,6 +366,32 @@
                     </p>
                 </div>
 
+                <!-- Featured PCA Plot Panel -->
+                <div class="rounded-2xl border border-[#d9cfbc] dark:border-[#3d3225] bg-[#fcfbf9]/60 dark:bg-[#171310]/60 p-6 lg:p-8 space-y-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-sage-600 dark:text-editorial-400 uppercase tracking-widest font-mono">Figure 2 Visualisation</span>
+                            <h4 class="text-xl font-serif font-bold text-[#261f18] dark:text-white">Principal Component Analysis (PCA) of Sex-Based Differences in Ultramarathon Performance</h4>
+                        </div>
+                        <span class="text-xs px-3 py-1 rounded-full bg-[#ede8dc] dark:bg-[#261f18] font-mono text-[#544533] dark:text-[#d9cfbc] self-start lg:self-auto">NHANES & Performance PCA</span>
+                    </div>
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 bg-white dark:bg-[#0b0f19] p-3 rounded-xl border border-[#d9cfbc]/60 dark:border-[#3d3225] shadow-sm">
+                            <img src="Figure_2_PCA.jpg" alt="Principal Component Analysis of Sex-Based Differences in Ultramarathon Performance" class="w-full h-auto rounded-lg object-contain">
+                        </div>
+                        <div class="lg:col-span-5 space-y-4">
+                            <p class="text-sm text-[#544533] dark:text-[#bfae93] leading-relaxed font-light">
+                                Despite measurable sex-based differences in ultramarathon performance, PCA revealed substantial multivariate overlap between male and female observations, highlighting the considerable shared variation in systemic lipid profiles.
+                            </p>
+                            <div class="pt-2 text-xs font-mono text-[#a38f70] space-y-1">
+                                <p>• PC1: HDL and Triglyceride Variance</p>
+                                <p>• PC2: Total Cholesterol & LDL Variance</p>
+                                <p>• Ellipses: 95% Confidence Intervals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pt-8 border-t border-[#d9cfbc]/40 dark:border-[#3d3225]">
                     <div class="space-y-3">
                         <div class="w-10 h-10 rounded-2xl bg-sage-600/10 dark:bg-editorial-500/10 text-sage-700 dark:text-editorial-300 flex items-center justify-center font-serif font-bold text-lg">1</div>
@@ -562,7 +588,7 @@
 
     <!-- Deep-Dive Modal -->
     <div id="researchModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md hidden">
-        <div class="rounded-3xl glass-panel max-w-2xl w-full p-8 lg:p-10 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto border border-[#d9cfbc] dark:border-[#3d3225]">
+        <div class="rounded-3xl glass-panel max-w-3xl w-full p-8 lg:p-10 shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto border border-[#d9cfbc] dark:border-[#3d3225]">
             <button onclick="closeModal()" class="absolute top-6 right-6 p-2.5 rounded-full bg-[#ede8dc] dark:bg-[#261f18] text-[#544533] dark:text-[#bfae93] hover:text-[#261f18] dark:hover:text-white transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
@@ -572,6 +598,12 @@
                 <h3 class="text-3xl font-serif font-bold mt-1">Big Data Statistical Pipeline & Physiological Synthesis</h3>
             </div>
 
+            <!-- Modal Image Preview -->
+            <div class="bg-white dark:bg-[#0b0f19] p-4 rounded-2xl border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-3">
+                <img src="Figure_2_PCA.jpg" alt="Principal Component Analysis Visualization" class="w-full h-auto rounded-xl max-h-[350px] object-contain mx-auto">
+                <p class="text-xs text-center text-[#877353] dark:text-[#a38f70] font-mono">Figure 2: Principal Component Analysis (PCA) of Sex-Based Differences in Ultramarathon Performance</p>
+            </div>
+
             <div class="space-y-4 text-sm text-[#544533] dark:text-[#bfae93]">
                 <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
                     <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">1. Big Data Ingestion & Quality Control</h4>
@@ -579,7 +611,7 @@
                 </div>
                 <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
                     <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">2. Principal Component Analysis & Hypothesis Testing</h4>
-                    <p class="font-light leading-relaxed">Utilised <code class="text-sage-700 dark:text-editorial-300 font-mono">rstatix</code> and base stats to execute Welch's t-tests and PCA. Demonstrated distinct variance clustering across ultra-endurance distance brackets and biological sex cohorts.</p>
+                    <p class="font-light leading-relaxed">Utilised <code class="text-sage-700 dark:text-editorial-300 font-mono">rstatix</code> and base stats to execute Welch's t-tests and PCA. Demonstrated substantial multivariate overlap between male and female observations, highlighting the considerable shared variation in systemic lipid profiles.</p>
                 </div>
                 <div class="p-5 rounded-2xl bg-[#ede8dc]/50 dark:bg-[#261f18]/50 border border-[#d9cfbc]/60 dark:border-[#3d3225] space-y-2">
                     <h4 class="font-serif font-bold text-base text-[#261f18] dark:text-white">3. Biochemical Interpretation</h4>
